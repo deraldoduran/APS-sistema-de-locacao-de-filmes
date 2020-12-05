@@ -28,4 +28,22 @@ public class Gerente extends Funcionario{
     public void adicionarOperador(String n, int m, String l, int s){
         this.operador = new Operador(n,m,l,s);
     }
+
+    public void listarClientes(){
+        for(int i=0; i<cliente.size(); i++){
+            System.out.println(cliente.toString());
+        }
+    }
+
+    public void listarProdutos(){
+        for(int i=0; i<produtoQualquer.size(); i++){
+            System.out.println(produtoQualquer.toString());
+        }
+    }
+
+    public void listarOperador(){
+        for(int i=0; i<operador.size(); i++){
+            System.out.println(operador.toString());
+        }
+    }
 }

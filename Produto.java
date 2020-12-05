@@ -15,5 +15,9 @@ public abstract class Produto {
     }
     
     abstract public double calcularDiaria();
+
+    public String toString(){
+        return this.codigo + ":" + this.titulo + ":" + this.genero + ":" + this.locado;
+    }
     
 }
