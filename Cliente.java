@@ -9,4 +9,8 @@ public class Cliente extends Pessoa{
         this.idade = id;
         this.sexo = se;
     }
+
+    public String toString(){
+        return this.super.nome + ":" + this.super.matricula + ":" this.endereco + ":" + this.idade + ":" +this.sexo;
+    }
 }
