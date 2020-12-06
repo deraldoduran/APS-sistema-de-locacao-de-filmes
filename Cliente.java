@@ -11,6 +11,6 @@ public class Cliente extends Pessoa{
     }
 
     public String toString(){
-        return this.super.nome + ":" + this.super.matricula + ":" this.endereco + ":" + this.idade + ":" +this.sexo;
+        return this.nome + ":" + this.matricula + ":" + this.endereco + ":" + this.idade + ":" +this.sexo;
     }
 }

@@ -6,6 +6,6 @@ public class Operador extends Funcionario{
     }
 
     public String toString(){
-        return this.super.nome + ":" + this.super.matricula + ":" + this.super.login + ":" this.super.senha;
+        return this.nome + ":" + this.matricula + ":" + this.login + ":" + this.senha;
     }
 }
