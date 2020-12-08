@@ -13,22 +13,25 @@ public class Gerente extends Funcionario{
 
     public Gerente(){
         super(n, m, l, s);
+        this.cliente = new ArrayList<>();
+        this.produtoQualquer = new ArrayList<>();
+        this.operador = new ArrayList<>();
     }
 
     public void adicionaCliente(String n, int m, String en, int id, char se ){
-        this.cliente = new ArrayList<>();
+        //this.cliente = new ArrayList<>();
         
         this.cliente.add(new Cliente(n, m, en, id, se));
     }
 
     public void adicionarProdutoQualquer(String c, String t, String g, boolean l){
-        this.produtoQualquer = new ArrayList<>();
+        //this.produtoQualquer = new ArrayList<>();
         this.produtoQualquer.add(new Produto(c,t,g,l));
         
     }
 
     public void adicionarOperador(String n, int m, String l, int s){
-        this.operador = new ArrayList<>();
+        //this.operador = new ArrayList<>();
         this.operador.add(new Operador(n,m,l,s));
     }
 
@@ -58,7 +61,7 @@ public class Gerente extends Funcionario{
         }
     }
 
-    public void procurarProdutoPorCodigo( string c){
+    public void procurarProdutoPorCodigo( String c){
         for(int i = 0; i< produtoQualquer.size(); i++){
             if(produtoQualquer.get(i).codigo.equals(c) ){
                 System.out.println(produtoQualquer.get(i).titulo);
