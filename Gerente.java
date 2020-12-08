@@ -56,6 +56,7 @@ public class Gerente extends Funcionario{
     public void procurarClientePorMatricula (int m){
         for(int i = 0; i< cliente.size(); i++){
             if(cliente.get(i).matricula == m){
+                cliente.get(i).
                 System.out.println(cliente.get(i).nome);
             }
         }
