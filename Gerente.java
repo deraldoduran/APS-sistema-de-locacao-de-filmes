@@ -49,4 +49,30 @@ public class Gerente extends Funcionario{
             System.out.println(operador.toString());
         }
     }
+
+    public void procurarClientePorMatricula (int m){
+        for(int i = 0; i< cliente.size(); i++){
+            if(cliente.get(i).matricula == m){
+                System.out.println(cliente.get(i).nome);
+            }
+        }
+    }
+
+    public void procurarProdutoPorCodigo( string c){
+        for(int i = 0; i< produtoQualquer.size(); i++){
+            if(produtoQualquer.get(i).codigo.equals(c) ){
+                System.out.println(produtoQualquer.get(i).titulo);
+            }
+        }
+    }
+
+    public void procurarOperadoresPorMatricula(int m){
+        
+        for(int i = 0; i< operador.size(); i++){
+            if(operador.get(i).matricula == m){
+                System.out.println(operador.get(i).nome);
+            }
+        }
+    }
+
 }
