@@ -16,17 +16,20 @@ public class Gerente extends Funcionario{
     }
 
     public void adicionaCliente(String n, int m, String en, int id, char se ){
+        this.cliente = new ArrayList<>();
         
-        this.cliente =new Cliente(n, m, en, id, se);
+        this.cliente.add(new Cliente(n, m, en, id, se));
     }
 
     public void adicionarProdutoQualquer(String c, String t, String g, boolean l){
-        this.produtoQualquer = new Produto(c,t,g,l);
+        this.produtoQualquer = new ArrayList<>();
+        this.produtoQualquer.add(new Produto(c,t,g,l));
         
     }
 
     public void adicionarOperador(String n, int m, String l, int s){
-        this.operador = new Operador(n,m,l,s);
+        this.operador = new ArrayList<>();
+        this.operador.add(new Operador(n,m,l,s));
     }
 
     public void listarClientes(){
