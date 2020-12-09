@@ -31,7 +31,7 @@ public class Gerente extends Funcionario{
         
     }
 
-    public void adicionarOperador(String n, int m, String l, int s){
+    public void adicionarOperador(String n, int m, String l, String s){
         //this.operador = new ArrayList<>();
         this.operador.add(new Operador(n,m,l,s));
     }
@@ -57,7 +57,7 @@ public class Gerente extends Funcionario{
     public void procurarClientePorMatricula (int m){
         for(int i = 0; i< cliente.size(); i++){
             if(cliente.get(i).matricula == m){
-                cliente.get(i).
+                //cliente.get(i).
                 System.out.println(cliente.get(i).nome);
             }
         }
