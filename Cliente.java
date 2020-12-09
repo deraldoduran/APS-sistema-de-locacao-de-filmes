@@ -10,6 +10,10 @@ public class Cliente extends Pessoa{
         this.sexo = se;
     }
 
+    public Cliente(int m){
+        super(m);
+    }
+
     public String toString(){
         return this.nome + ":" + this.matricula + ":" + this.endereco + ":" + this.idade + ":" +this.sexo;
     }

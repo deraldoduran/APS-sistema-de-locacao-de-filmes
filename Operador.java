@@ -1,26 +1,29 @@
 import java.util.ArrayList;
+import java.util.Date;
 
-import atv02.Produto;
+
 
 public class Operador extends Funcionario {
     private ArrayList <Cliente> cliente;
         
     private ArrayList <Produto> produtoQualquer;
 
-    Gerente ge =new Gerente();
+    private ArrayList <Locacao> lo;
+    
 
     public Operador (String n, int m, String l, int s){
         super(n, m, l, s);
         this.cliente = new ArrayList<>();
         this.produtoQualquer = new ArrayList<>();
+        this.lo = new ArrayList<>();
     }
 
     public String toString(){
         return this.nome + ":" + this.matricula + ":" + this.login + ":" + this.senha;
     }
 
-    public void fazerLocacao(Produto c, Produto t, Produto g, Produto l, String n, int m ){
-        ge.procurarClientePorMatricula(m);
-        ge.procurarProdutoPorCodigo(c);
+    public void Locar(String c, String t, String g, boolean l, Date ds, Date ep, Date dd){
+        lo.add(new Locacao(c, t, g, l, ds, ep, dd));
     }
+
 }

@@ -1,4 +1,4 @@
-package atv02;
+
 
 public abstract class Produto {
 
@@ -14,8 +14,8 @@ public abstract class Produto {
         this.locado = l;
     }
 
-    public Produto(){
-        
+     public void quaisProdutos(){
+
     }
     
     abstract public double calcularDiaria();

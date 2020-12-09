@@ -8,4 +8,8 @@ public abstract class Pessoa{
         this.nome = n;
         this.matricula = m;
     }
+
+    public Pessoa(int m){
+        this.matricula = m;
+    }
 }

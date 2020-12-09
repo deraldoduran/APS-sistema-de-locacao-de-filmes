@@ -1,17 +1,17 @@
 import java.util.ArrayList;
 
-import atv02.Produto;
+
 
 public class Gerente extends Funcionario{
 
         private ArrayList <Cliente> cliente;
         
-        private ArrayList <Produto> produtoQualquer;
+        private ArrayList <Locacao> produtoQualquer;
         
         private ArrayList <Operador> operador;
 
 
-    public Gerente(String n, int m, String l, int s){
+    public Gerente(String n, int m, String l, String s){
         
         super( n,m,l, s);
         this.cliente = new ArrayList<>();
@@ -27,7 +27,7 @@ public class Gerente extends Funcionario{
 
     public void adicionarProdutoQualquer(String c, String t, String g, boolean l){
         //this.produtoQualquer = new ArrayList<>();
-        this.produtoQualquer.add(new Produto());
+        this.produtoQualquer.add(new Produto(c, t, g, l));
         
     }
 
