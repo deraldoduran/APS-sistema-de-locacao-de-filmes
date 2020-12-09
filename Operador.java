@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 
 
 
@@ -11,7 +12,7 @@ public class Operador extends Funcionario {
     private ArrayList <Locacao> lo;
     
 
-    public Operador (String n, int m, String l, int s){
+    public Operador (String n, int m, String l, String s){
         super(n, m, l, s);
         this.cliente = new ArrayList<>();
         this.produtoQualquer = new ArrayList<>();
