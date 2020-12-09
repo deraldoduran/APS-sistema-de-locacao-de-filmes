@@ -9,7 +9,7 @@ public class Operador extends Funcionario {
 
     Gerente ge =new Gerente();
 
-    public Operador (){
+    public Operador (String n, int m, String l, int s){
         super(n, m, l, s);
         this.cliente = new ArrayList<>();
         this.produtoQualquer = new ArrayList<>();

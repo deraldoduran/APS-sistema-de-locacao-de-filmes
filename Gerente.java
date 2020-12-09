@@ -11,8 +11,9 @@ public class Gerente extends Funcionario{
         private ArrayList <Operador> operador;
 
 
-    public Gerente(){
-        super(n, m, l, s);
+    public Gerente(String n, int m, String l, int s){
+        
+        super( n,m,l, s);
         this.cliente = new ArrayList<>();
         this.produtoQualquer = new ArrayList<>();
         this.operador = new ArrayList<>();
@@ -26,7 +27,7 @@ public class Gerente extends Funcionario{
 
     public void adicionarProdutoQualquer(String c, String t, String g, boolean l){
         //this.produtoQualquer = new ArrayList<>();
-        this.produtoQualquer.add(new Produto(c,t,g,l));
+        this.produtoQualquer.add(new Produto());
         
     }
 

@@ -13,6 +13,10 @@ public abstract class Produto {
         this.genero = g;
         this.locado = l;
     }
+
+    public Produto(){
+        
+    }
     
     abstract public double calcularDiaria();
 
