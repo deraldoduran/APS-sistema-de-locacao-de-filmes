@@ -1,3 +1,6 @@
+package pessoa.cliente;
+import pessoa.Pessoa;
+
 public class Cliente extends Pessoa{
  public String endereco;
  public int idade;

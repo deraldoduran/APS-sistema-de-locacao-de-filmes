@@ -1,7 +1,7 @@
+package pessoa;
+
 public abstract class Pessoa{
-   
     public String nome;
-   
     public int matricula;
     
     public Pessoa(String n, int m){

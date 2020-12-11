@@ -1,19 +1,18 @@
+package pessoa.funcionario;
+
+import pessoa.cliente.Cliente;
+import locacao.Locacao;
+import produto.Produto;
+
 import java.util.ArrayList;
 
-
-
 public class Gerente extends Funcionario{
-
         private ArrayList <Cliente> cliente;
-        
         private ArrayList <Locacao> produtoQualquer;
-        
         private ArrayList <Operador> operador;
 
-
     public Gerente(String n, int m, String l, String s){
-        
-        super( n,m,l, s);
+        super(n , m, l, s);
         this.cliente = new ArrayList<>();
         this.produtoQualquer = new ArrayList<>();
         this.operador = new ArrayList<>();
@@ -21,14 +20,12 @@ public class Gerente extends Funcionario{
 
     public void adicionaCliente(String n, int m, String en, int id, char se ){
         //this.cliente = new ArrayList<>();
-        
         this.cliente.add(new Cliente(n, m, en, id, se));
     }
 
     public void adicionarProdutoQualquer(String c, String t, String g, boolean l){
-        //this.produtoQualquer = new ArrayList<>();
-        this.produtoQualquer.add(new Produto(c, t, g, l));
-        
+        Produto p = new Produto(c, t, g, l);
+        this.produtoQualquer.add(p);
     }
 
     public void adicionarOperador(String n, int m, String l, String s){
@@ -72,12 +69,10 @@ public class Gerente extends Funcionario{
     }
 
     public void procurarOperadoresPorMatricula(int m){
-        
         for(int i = 0; i< operador.size(); i++){
             if(operador.get(i).matricula == m){
                 System.out.println(operador.get(i).nome);
             }
         }
     }
-
 }

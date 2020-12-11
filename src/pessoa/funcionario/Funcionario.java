@@ -1,3 +1,6 @@
+package pessoa.funcionario;
+import pessoa.Pessoa;
+
 public abstract class Funcionario extends Pessoa{
     public String login;
     public String senha;
