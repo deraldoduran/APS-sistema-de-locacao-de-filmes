@@ -1,5 +1,5 @@
-package pessoa.cliente;
-import pessoa.Pessoa;
+package main.java.br.com.locamax.api.pessoa.cliente;
+import main.java.br.com.locamax.api.pessoa.Pessoa;
 
 public class Cliente extends Pessoa{
  public String endereco;

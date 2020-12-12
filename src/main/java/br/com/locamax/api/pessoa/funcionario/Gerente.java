@@ -1,8 +1,7 @@
-package pessoa.funcionario;
+package main.java.br.com.locamax.api.pessoa.funcionario;
 
-import pessoa.cliente.Cliente;
-import locacao.Locacao;
-import produto.Produto;
+import main.java.br.com.locamax.api.pessoa.cliente.Cliente;
+import main.java.br.com.locamax.api.locacao.Locacao;
 
 import java.util.ArrayList;
 
@@ -24,8 +23,8 @@ public class Gerente extends Funcionario{
     }
 
     public void adicionarProdutoQualquer(String c, String t, String g, boolean l){
-        Produto p = new Produto(c, t, g, l);
-        this.produtoQualquer.add(p);
+/*         Produto p = new Produto(c, t, g, l);
+        this.produtoQualquer.add(p); */
     }
 
     public void adicionarOperador(String n, int m, String l, String s){

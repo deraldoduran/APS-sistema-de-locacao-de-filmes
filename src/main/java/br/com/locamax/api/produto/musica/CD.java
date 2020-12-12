@@ -1,4 +1,4 @@
-package produto.musica;
+package main.java.br.com.locamax.api.produto.musica;
 
 public class CD extends Musica{
     public boolean arranhado, duplo;

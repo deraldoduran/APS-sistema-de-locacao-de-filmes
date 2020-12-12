@@ -1,4 +1,4 @@
-package pessoa;
+package main.java.br.com.locamax.api.pessoa;
 
 public abstract class Pessoa{
     public String nome;
@@ -11,5 +11,9 @@ public abstract class Pessoa{
 
     public Pessoa(int m){
         this.matricula = m;
+    }
+
+    public String getNome(){
+        return this.nome;
     }
 }

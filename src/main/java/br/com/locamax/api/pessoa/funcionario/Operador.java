@@ -1,8 +1,8 @@
-package pessoa.funcionario;
+package main.java.br.com.locamax.api.pessoa.funcionario;
 
-import pessoa.cliente.Cliente;
-import locacao.Locacao;
-import produto.Produto;
+import main.java.br.com.locamax.api.pessoa.cliente.Cliente;
+import main.java.br.com.locamax.api.locacao.Locacao;
+import main.java.br.com.locamax.api.produto.Produto;
 
 import java.util.ArrayList;
 import java.util.Date;

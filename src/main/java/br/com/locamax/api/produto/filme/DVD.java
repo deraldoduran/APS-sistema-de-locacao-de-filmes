@@ -1,4 +1,4 @@
-package produto.filme;
+package main.java.br.com.locamax.api.produto.filme;
 
 public class DVD extends Filmes{
     public boolean arranhado;

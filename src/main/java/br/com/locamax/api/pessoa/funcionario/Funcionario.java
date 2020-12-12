@@ -1,5 +1,5 @@
-package pessoa.funcionario;
-import pessoa.Pessoa;
+package main.java.br.com.locamax.api.pessoa.funcionario;
+import main.java.br.com.locamax.api.pessoa.Pessoa;
 
 public abstract class Funcionario extends Pessoa{
     public String login;

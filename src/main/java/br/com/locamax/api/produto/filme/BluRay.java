@@ -1,4 +1,4 @@
-package produto.filme;
+package main.java.br.com.locamax.api.produto.filme;
 
 public class BluRay extends Filmes {
     public String idiomas;

@@ -1,7 +1,7 @@
-package locacao;
+package main.java.br.com.locamax.api.locacao;
 
-import produto.Produto;
-import pessoa.cliente.Cliente;
+import main.java.br.com.locamax.api.produto.Produto;
+import main.java.br.com.locamax.api.pessoa.cliente.Cliente;
 import java.util.Date;
 
 public class Locacao extends Produto {

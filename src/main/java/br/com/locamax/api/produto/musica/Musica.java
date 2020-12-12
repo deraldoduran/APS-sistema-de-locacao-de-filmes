@@ -1,6 +1,6 @@
-package produto.musica;
+package main.java.br.com.locamax.api.produto.musica;
 
-import produto.Produto;
+import main.java.br.com.locamax.api.produto.Produto;
 
 public abstract class Musica extends Produto{
     public String autor;

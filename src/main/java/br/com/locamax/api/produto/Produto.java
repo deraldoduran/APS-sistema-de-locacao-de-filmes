@@ -1,4 +1,4 @@
-package produto;
+package main.java.br.com.locamax.api.produto;
 
 public abstract class Produto {
     public String codigo;

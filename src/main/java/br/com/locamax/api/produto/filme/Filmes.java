@@ -1,5 +1,5 @@
-package produto.filme;
-import produto.Produto;
+package main.java.br.com.locamax.api.produto.filme;
+import main.java.br.com.locamax.api.produto.Produto;
 
 public abstract class Filmes extends Produto{
     
