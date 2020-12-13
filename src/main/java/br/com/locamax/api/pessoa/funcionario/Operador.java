@@ -24,6 +24,6 @@ public class Operador extends Funcionario {
     }
 
     public void Locar(String c, String t, String g, boolean l, Date ds, Date ep, Date dd){
-        lo.add(new Locacao(c, t, g, l, ds, ep, dd));
+        lo.add(new Locacao(c, t, g, ds, ep, dd));
     }
 }

@@ -9,14 +9,14 @@ public class Locacao extends Produto {
     Date dataEntregaPrevista;
     Date dataDevolucao;
 
-    public Locacao(String c, String t, String g, boolean l,Date ds, Date ep, Date dd){
-        super(c, t, g, l);
+    public Locacao(String c, String t, String g, Date ds, Date ep, Date dd){
+        super(c, t, g);
         this.dataSaida = ds;
         this.dataEntregaPrevista = ep;
         this.dataDevolucao = dd;
     }
     
-    public void fazerLocacao(int m,String c,boolean l, Date ds, Date ep, Date dd){
+    public void fazerLocacao(int m, String c, Date ds, Date ep, Date dd){
 
     Cliente cli = new Cliente(m);
         cli.matricula = m;
