@@ -3,10 +3,10 @@ package main.java.br.com.locamax.api.produto.musica;
 public class CD extends Musica{
     public boolean arranhado, duplo;
 
-    public CD(String c, String t, String g, boolean l, String au, int num, boolean arr, boolean dp) {
-        super(c, t, g, l, au, num);
+    public CD(String cod, String tit, String gen, String aut, int num, boolean dup, boolean arr) {
+        super(cod, tit, gen, aut, num);
+        this.duplo = dup;
         this.arranhado = arr;
-        this.duplo = dp;
     }
 
     @Override

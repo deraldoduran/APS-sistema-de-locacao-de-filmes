@@ -6,9 +6,9 @@ public abstract class Musica extends Produto{
     public String autor;
     public int numFaixas;
     
-    public Musica(String c, String t, String g, boolean l, String au, int num) {
-        super(c, t, g, l);
-        this.autor = au;
+    public Musica(String cod, String tit, String gen, String aut, int num) {
+        super(cod, tit, gen);
+        this.autor = aut;
         this.numFaixas = num;
     }
 
