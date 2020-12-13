@@ -9,6 +9,10 @@ public abstract class Pessoa{
         this.matricula = m;
     }
 
+    public String toString() {
+        return this.nome + " - " + this.matricula;
+    }
+
     public Pessoa(int m){
         this.matricula = m;
     }
