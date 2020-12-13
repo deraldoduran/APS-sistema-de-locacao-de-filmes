@@ -17,40 +17,40 @@ public class Gerente extends Funcionario{
         this.operador = new ArrayList<>();
     }
 
-    public void adicionaCliente(String n, int m, String en, int id, char se ){
+    public void addCliente(String n, int m, String en, int id, char se ){
         //this.cliente = new ArrayList<>();
         this.cliente.add(new Cliente(n, m, en, id, se));
     }
 
-    public void adicionarProdutoQualquer(String c, String t, String g, boolean l){
+    public void addProdutoQualquer(String c, String t, String g, boolean l){
 /*         Produto p = new Produto(c, t, g, l);
         this.produtoQualquer.add(p); */
     }
 
-    public void adicionarOperador(String n, int m, String l, String s){
+    public void addOperador(String n, int m, String l, String s){
         //this.operador = new ArrayList<>();
         this.operador.add(new Operador(n,m,l,s));
     }
 
-    public void listarClientes(){
+    public void listClientes(){
         for(int i=0; i<cliente.size(); i++){
             System.out.println(cliente.toString());
         }
     }
 
-    public void listarProdutos(){
+    public void listProdutos(){
         for(int i=0; i<produtoQualquer.size(); i++){
             System.out.println(produtoQualquer.toString());
         }
     }
 
-    public void listarOperador(){
+    public void listOperador(){
         for(int i=0; i<operador.size(); i++){
             System.out.println(operador.toString());
         }
     }
 
-    public void procurarClientePorMatricula (int m){
+    public void listClientePorMatricula (int m){
         for(int i = 0; i< cliente.size(); i++){
             if(cliente.get(i).matricula == m){
                 //cliente.get(i).

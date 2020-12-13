@@ -6,7 +6,6 @@ import main.java.br.com.locamax.api.produto.Produto;
 
 import java.util.ArrayList;
 import java.util.Date;
-//import java.util.HashMap;
 
 public class Operador extends Funcionario {
     private ArrayList <Cliente> cliente;
