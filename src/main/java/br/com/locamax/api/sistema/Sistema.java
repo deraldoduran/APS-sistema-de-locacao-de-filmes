@@ -1,7 +1,8 @@
 package main.java.br.com.locamax.api.sistema;
 
 import main.java.br.com.locamax.api.login.GerenciadorDeLogin;
-import main.java.br.com.locamax.api.repositorios.*;
+import main.java.br.com.locamax.api.pessoa.funcionario.*;
+import main.java.br.com.locamax.api.repositorio.*;
 
 public class Sistema {
     GerenciadorDeLogin gLogin;
@@ -30,6 +31,11 @@ public class Sistema {
 
     public RepoProduct getrProduct() {
         return rProduct;
+    }
+
+    public void addEmployee(String n, int m, String l, String s){
+        Funcionario f = new Funcionario(n, m, l, s);
+        this.rEmployee.addFuncionario(f);
     }
 }
 
