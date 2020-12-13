@@ -13,7 +13,6 @@ public class App {
 
         Sistema sis = new Sistema();
         sis.addGerente("gerente", 0, "login", "senha");
-        System.out.println(sis.getrEmployee().getFuncionario("login").toString());
 
         while(!op.contentEquals("03")){
             System.out.println(
@@ -56,7 +55,7 @@ public class App {
                         "#Olá Gerente " + sis.getgLogin().getFLogged().getNome() + "\n" + 
                         "01 – Cadastrar Produto\n" + 
                         "02 – Cadastrar Cliente\n" + 
-                        "03 – Cadastrar Operador\n" + 
+                        "03 – Cadastrar Operador\n" +
                         "04 – Listar Produtos\n" + 
                         "05 – Listar Clientes\n" + 
                         "06 – Listar Operadores\n" + 
@@ -157,12 +156,38 @@ public class App {
                             }
                             sis.addVHS(cod, tit, gen, ano, dur, cor);
                         } else if (op.contentEquals("04")){
-
+                            System.out.println("#Cadastrar CD");
+                            System.out.println("Digite o código e pressione <ENTER>");
+                            String cod = sc.nextLine();
+                            System.out.println("Digite o título e pressione <ENTER>");
+                            String tit = sc.nextLine();
+                            System.out.println("Digite o gênero e pressione <ENTER>");
+                            String gen = sc.nextLine();
+                            System.out.println("Digite o autor(es) e pressione <ENTER>");
+                            String aut = sc.nextLine();
+                            System.out.println("Digite o número de faixas e pressione <ENTER>");
+                            Integer numF = Integer.parseInt(sc.nextLine());
+                            Boolean dup = false;
+                            while(!op.contentEquals("sim") && !op.contentEquals("nao")){
+                                System.out.println("O CD é duplo? digite 'sim' ou 'nao' e pressione <ENTER>");
+                                op = sc.nextLine();
+                                if(op.contentEquals("sim"))
+                                    dup = true;                             
+                            }
+                            Boolean arr = false;
+                            op = "";
+                            while(!op.contentEquals("sim") && !op.contentEquals("nao")){
+                                System.out.println("O CD está arranhado? digite 'sim' ou 'nao' e pressione <ENTER>");
+                                op = sc.nextLine();
+                                if(op.contentEquals("sim"))
+                                    arr = true;                             
+                            }
+                            sis.addCD(cod, tit, gen, aut, numF, dup, arr);
                         }
                     }
                 } else if (op.contentEquals("02")){ //Login Operador do Sistema
                     System.out.println("await");
-                } else if (op.contentEquals("03")){
+                } else if (op.contentEquals("03")){ //Sair
                     System.out.println("Good Bye!!!");
                     return;
                 } else {
