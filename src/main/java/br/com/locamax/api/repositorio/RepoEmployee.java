@@ -1,6 +1,7 @@
 package main.java.br.com.locamax.api.repositorio;
 
-import main.java.br.com.locamax.api.pessoa.funcionario.Funcionario;
+import main.java.br.com.locamax.api.pessoa.funcionario.*;
+
 import java.util.HashMap;
 import java.util.Set;
 
@@ -36,6 +37,11 @@ public class RepoEmployee {
 
     public boolean addFuncionario(Funcionario f){
         mapFuncionario.put(f.login, f);
+        return true;
+    }
+
+    public boolean addGerente(Gerente g){
+        mapFuncionario.put(g.login, g);
         return true;
     }
 }
