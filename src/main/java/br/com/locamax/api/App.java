@@ -11,6 +11,8 @@ public class App {
         String op = "";
 
         Sistema sis = new Sistema();
+        sis.addEmployee("gerente", 0, "login", "senha");
+        System.out.println(sis.getrEmployee().getFuncionario("login").toString());
 
         while(!op.contentEquals("03")){
             System.out.println(
@@ -42,7 +44,7 @@ public class App {
                         String login = sc.nextLine();
                         String senha = sc.nextLine();
     
-                        Funcionario f = sis.getgLogin().login(login, senha);
+                        Funcionario f = sis.getgLogin().login(login, senha, sis.getrEmployee());
 
                         if(f != null){
                             sis.getgLogin().setFLogged(f);
@@ -50,7 +52,7 @@ public class App {
                     }
 
                     System.out.println(
-                        "Olá Gerente" + sis.getgLogin().getFLogged().getNome() + "\n" + 
+                        "Olá Gerente " + sis.getgLogin().getFLogged().getNome() + "\n" + 
                         "01 – Cadastrar Produto\n" + 
                         "02 – Cadastrar Cliente\n" + 
                         "03 – Cadastrar Operador\n" + 
