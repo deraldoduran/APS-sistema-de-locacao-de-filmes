@@ -1,0 +1,35 @@
+//login Gerente
+01
+login
+senha
+//Cadastrar Bluray
+01
+01
+00
+(BluRay) A volta dos que nao foram
+Acao
+1995
+300
+portugues, espanhol
+nao
+//Cadastrar DVD
+01
+01
+02
+02
+(DVD) A ida dos que nao partiram
+Drama
+1985
+230
+sim
+//Cadastrar VHS
+01
+01
+03
+03
+(VHS) Vento que sopra no mar
+Romance
+1995
+100
+nao
+//Cadastrar CD
