@@ -32,3 +32,4 @@ Romance
 1995
 100
 nao
+//Cadastrar CD

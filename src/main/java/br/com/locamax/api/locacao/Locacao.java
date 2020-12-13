@@ -17,13 +17,12 @@ public class Locacao extends Produto {
     }
     
     public void fazerLocacao(int m, String c, Date ds, Date ep, Date dd){
-
-    Cliente cli = new Cliente(m);
-        cli.matricula = m;
-        super.codigo = c;
-        this.dataSaida = ds;
-        this.dataEntregaPrevista = ep;
-        this.dataDevolucao = dd;
+        Cliente cli = new Cliente(m);
+            cli.matricula = m;
+            super.codigo = c;
+            this.dataSaida = ds;
+            this.dataEntregaPrevista = ep;
+            this.dataDevolucao = dd;
     }
 
     @Override
