@@ -32,4 +32,9 @@ public class RepoProduct {
         this.mapProduto.put(c.getCodigo(), c);
         System.out.println(c.toString());
     }
+
+    public void addLP(LP l){
+        this.mapProduto.put(l.getCodigo(), l);
+        System.out.println(l.toString());
+    }
 }

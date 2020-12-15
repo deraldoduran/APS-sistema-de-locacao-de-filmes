@@ -2,12 +2,12 @@ package main.java.br.com.locamax.api;
 
 import main.java.br.com.locamax.api.shell.Shell;
 import main.java.br.com.locamax.api.sistema.Sistema;
-import main.java.br.com.locamax.api.pessoa.funcionario.*;
+// import main.java.br.com.locamax.api.pessoa.funcionario.*;
 
 public class App {
     public static void main(String[] args) throws Exception {
         // substitui "Scanner sc = new Scanner(System.in)"
-        // para permitir entradas em lote
+        // para permitir entradas em lote, mude para "Shell(true)".
         Shell sc =  new Shell();
 
         String op = "";
@@ -29,7 +29,7 @@ public class App {
 
             try{
                 if(op.contentEquals("01")){ //Login Gerente
-                    while(sis.getgLogin().getFLogged() == null){
+                    while(!sis.getgLogin().testLogged()){
                         System.out.println(
                             "----------------------------LOCAMAX------------------------\n" + 
                             "#Login\n" + 
@@ -40,135 +40,155 @@ public class App {
                         String login = sc.nextLine();
                         String senha = sc.nextLine();
     
-                        Funcionario f = sis.getgLogin().login(login, senha, sis.getrEmployee());
-
-                        if(f != null){
-                            sis.getgLogin().setFLogged(f);
-                        }
+                        sis.getgLogin().login(login, senha, sis.getrEmployee());
                     }
 
-                    System.out.println(
-                        "#Olá Gerente " + sis.getgLogin().getFLogged().getNome() + "\n" + 
-                        "01 – Cadastrar Produto\n" + 
-                        "02 – Cadastrar Cliente\n" + 
-                        "03 – Cadastrar Operador\n" +
-                        "04 – Listar Produtos\n" + 
-                        "05 – Listar Clientes\n" + 
-                        "06 – Listar Operadores\n" + 
-                        "07 – Procurar Produto\n" + 
-                        "08 – Procurar Cliente\n" + 
-                        "09 – Procurar Operador\n" +
-                        "10 – Sair\n" +
-                        "Digite o numero correspondente e tecle <ENTER>"
-                    );
-                    
-                    op = sc.nextLine();
-                    
-                    if(op.contentEquals("01")){ //Cadastrar produto
+                    while(sis.getgLogin().testLogged()){
                         System.out.println(
-                            "#Cadastrar Produto\n" + 
-                            "Filme\n" +
-                            "    01 - Bluray\n" +
-                            "    02 - DVD\n" +
-                            "    03 - VHS\n" +
-                            "Música\n" +
-                            "    04 - CD\n" +
-                            "    05 - LP\n" +
-                            "Digite numero correspondente e tecle <ENTER>"
+                            "#Olá Gerente " + sis.getgLogin().getFLogged().getNome() + "\n" + 
+                            "01 – Cadastrar Produto\n" + 
+                            "02 – Cadastrar Cliente\n" + 
+                            "03 – Cadastrar Operador\n" +
+                            "04 – Listar Produtos\n" + 
+                            "05 – Listar Clientes\n" + 
+                            "06 – Listar Operadores\n" + 
+                            "07 – Procurar Produto\n" + 
+                            "08 – Procurar Cliente\n" + 
+                            "09 – Procurar Operador\n" +
+                            "10 – Logout\n" +
+                            "Digite o numero correspondente e tecle <ENTER>"
                         );
-
+                        
                         op = sc.nextLine();
+                        
+                        if(op.contentEquals("01")){ //Cadastrar produto
+                            System.out.println(
+                                "#Cadastrar Produto\n" + 
+                                "Filme\n" +
+                                "    01 - Bluray\n" +
+                                "    02 - DVD\n" +
+                                "    03 - VHS\n" +
+                                "Música\n" +
+                                "    04 - CD\n" +
+                                "    05 - LP\n" +
+                                "Digite numero correspondente e tecle <ENTER>"
+                            );
 
-                        if(op.contentEquals("01")){ //Cadastrar Bluray
-                            System.out.println("#Cadastrar Bluray");
-                            System.out.println("Digite o código e pressione <ENTER>");
-                            String cod = sc.nextLine();
-                            System.out.println("Digite o título e pressione <ENTER>");
-                            String tit = sc.nextLine();
-                            System.out.println("Digite o gênero e pressione <ENTER>");
-                            String gen = sc.nextLine();
-                            System.out.println("Digite o ano e pressione <ENTER>");
-                            int ano = Integer.parseInt(sc.nextLine());
-                            System.out.println("Digite a duracao em minutos e pressione <ENTER>");
-                            int dur = Integer.parseInt(sc.nextLine());
-                            System.out.println("Digite os idiomas e pressione <ENTER>");
-                            String idi = sc.nextLine();
-                            boolean arr = false;
-                            while(!op.contentEquals("sim") && !op.contentEquals("nao")){
-                                System.out.println("O disco está arranhado? digite 'sim' ou 'nao' e pressione <ENTER>");
-                                op = sc.nextLine();
-                                if(op.contentEquals("sim"))
-                                    arr = true;                             
+                            op = sc.nextLine();
+
+                            if(op.contentEquals("01")){ //Cadastrar Bluray
+                                System.out.println("#Cadastrar Bluray");
+                                System.out.println("Digite o código e pressione <ENTER>");
+                                String cod = sc.nextLine();
+                                System.out.println("Digite o título e pressione <ENTER>");
+                                String tit = sc.nextLine();
+                                System.out.println("Digite o gênero e pressione <ENTER>");
+                                String gen = sc.nextLine();
+                                System.out.println("Digite o ano e pressione <ENTER>");
+                                int ano = Integer.parseInt(sc.nextLine());
+                                System.out.println("Digite a duracao em minutos e pressione <ENTER>");
+                                int dur = Integer.parseInt(sc.nextLine());
+                                System.out.println("Digite os idiomas e pressione <ENTER>");
+                                String idi = sc.nextLine();
+                                boolean arr = false;
+                                while(!op.contentEquals("sim") && !op.contentEquals("nao")){
+                                    System.out.println("O disco está arranhado? digite 'sim' ou 'nao' e pressione <ENTER>");
+                                    op = sc.nextLine();
+                                    if(op.contentEquals("sim"))
+                                        arr = true;                             
+                                }
+                                sis.addBluRay(cod, tit, gen, ano, dur, idi, arr);
+                            } else if(op.contentEquals("02")){ //Cadastrar DVD
+                                System.out.println("#Cadastrar DVD");
+                                System.out.println("Digite o código e pressione <ENTER>");
+                                String cod = sc.nextLine();
+                                System.out.println("Digite o título e pressione <ENTER>");
+                                String tit = sc.nextLine();
+                                System.out.println("Digite o gênero e pressione <ENTER>");
+                                String gen = sc.nextLine();
+                                System.out.println("Digite o ano e pressione <ENTER>");
+                                int ano = Integer.parseInt(sc.nextLine());
+                                System.out.println("Digite a duracao em minutos e pressione <ENTER>");
+                                int dur = Integer.parseInt(sc.nextLine());
+                                boolean arr = false;
+                                while(!op.contentEquals("sim") && !op.contentEquals("nao")){
+                                    System.out.println("O disco está arranhado? digite 'sim' ou 'nao' e pressione <ENTER>");
+                                    op = sc.nextLine();
+                                    if(op.contentEquals("sim"))
+                                        arr = true;                             
+                                }
+                                sis.addDVD(cod, tit, gen, ano, dur, arr);
+                            } else if(op.contentEquals("03")){ //Cadastrar VHS
+                                System.out.println("#Cadastrar VHS");
+                                System.out.println("Digite o código e pressione <ENTER>");
+                                String cod = sc.nextLine();
+                                System.out.println("Digite o título e pressione <ENTER>");
+                                String tit = sc.nextLine();
+                                System.out.println("Digite o gênero e pressione <ENTER>");
+                                String gen = sc.nextLine();
+                                System.out.println("Digite o ano e pressione <ENTER>");
+                                int ano = Integer.parseInt(sc.nextLine());
+                                System.out.println("Digite a duracao em minutos e pressione <ENTER>");
+                                int dur = Integer.parseInt(sc.nextLine());
+                                boolean cor = false;
+                                while(!op.contentEquals("sim") && !op.contentEquals("nao")){
+                                    System.out.println("O VHS é em cores? digite 'sim' ou 'nao' e pressione <ENTER>");
+                                    op = sc.nextLine();
+                                    if(op.contentEquals("sim"))
+                                        cor = true;                             
+                                }
+                                sis.addVHS(cod, tit, gen, ano, dur, cor);
+                            } else if (op.contentEquals("04")){
+                                System.out.println("#Cadastrar CD");
+                                System.out.println("Digite o código e pressione <ENTER>");
+                                String cod = sc.nextLine();
+                                System.out.println("Digite o título e pressione <ENTER>");
+                                String tit = sc.nextLine();
+                                System.out.println("Digite o gênero e pressione <ENTER>");
+                                String gen = sc.nextLine();
+                                System.out.println("Digite o autor(es) e pressione <ENTER>");
+                                String aut = sc.nextLine();
+                                System.out.println("Digite o número de faixas e pressione <ENTER>");
+                                Integer numF = Integer.parseInt(sc.nextLine());
+                                Boolean dup = false;
+                                while(!op.contentEquals("sim") && !op.contentEquals("nao")){
+                                    System.out.println("O CD é duplo? digite 'sim' ou 'nao' e pressione <ENTER>");
+                                    op = sc.nextLine();
+                                    if(op.contentEquals("sim"))
+                                        dup = true;                             
+                                }
+                                Boolean arr = false;
+                                op = "";
+                                while(!op.contentEquals("sim") && !op.contentEquals("nao")){
+                                    System.out.println("O CD está arranhado? digite 'sim' ou 'nao' e pressione <ENTER>");
+                                    op = sc.nextLine();
+                                    if(op.contentEquals("sim"))
+                                        arr = true;                             
+                                }
+                                sis.addCD(cod, tit, gen, aut, numF, dup, arr);
+                            } else if (op.contentEquals("05")){
+                                System.out.println("#Cadastrar LP");
+                                System.out.println("Digite o código e pressione <ENTER>");
+                                String cod = sc.nextLine();
+                                System.out.println("Digite o título e pressione <ENTER>");
+                                String tit = sc.nextLine();
+                                System.out.println("Digite o gênero e pressione <ENTER>");
+                                String gen = sc.nextLine();
+                                System.out.println("Digite o autor(es) e pressione <ENTER>");
+                                String aut = sc.nextLine();
+                                System.out.println("Digite o número de faixas e pressione <ENTER>");
+                                Integer numF = Integer.parseInt(sc.nextLine());
+                                Boolean rar = false;
+                                while(!op.contentEquals("sim") && !op.contentEquals("nao")){
+                                    System.out.println("O LP é raro? digite 'sim' ou 'nao' e pressione <ENTER>");
+                                    op = sc.nextLine();
+                                    if(op.contentEquals("sim"))
+                                        rar = true;                             
+                                }
+                                sis.addLP(cod, tit, gen, aut, numF, rar);
                             }
-                            sis.addBluRay(cod, tit, gen, ano, dur, idi, arr);
-                        } else if(op.contentEquals("02")){ //Cadastrar DVD
-                            System.out.println("#Cadastrar DVD");
-                            System.out.println("Digite o código e pressione <ENTER>");
-                            String cod = sc.nextLine();
-                            System.out.println("Digite o título e pressione <ENTER>");
-                            String tit = sc.nextLine();
-                            System.out.println("Digite o gênero e pressione <ENTER>");
-                            String gen = sc.nextLine();
-                            System.out.println("Digite o ano e pressione <ENTER>");
-                            int ano = Integer.parseInt(sc.nextLine());
-                            System.out.println("Digite a duracao em minutos e pressione <ENTER>");
-                            int dur = Integer.parseInt(sc.nextLine());
-                            boolean arr = false;
-                            while(!op.contentEquals("sim") && !op.contentEquals("nao")){
-                                System.out.println("O disco está arranhado? digite 'sim' ou 'nao' e pressione <ENTER>");
-                                op = sc.nextLine();
-                                if(op.contentEquals("sim"))
-                                    arr = true;                             
-                            }
-                            sis.addDVD(cod, tit, gen, ano, dur, arr);
-                        } else if(op.contentEquals("03")){ //Cadastrar VHS
-                            System.out.println("#Cadastrar VHS");
-                            System.out.println("Digite o código e pressione <ENTER>");
-                            String cod = sc.nextLine();
-                            System.out.println("Digite o título e pressione <ENTER>");
-                            String tit = sc.nextLine();
-                            System.out.println("Digite o gênero e pressione <ENTER>");
-                            String gen = sc.nextLine();
-                            System.out.println("Digite o ano e pressione <ENTER>");
-                            int ano = Integer.parseInt(sc.nextLine());
-                            System.out.println("Digite a duracao em minutos e pressione <ENTER>");
-                            int dur = Integer.parseInt(sc.nextLine());
-                            boolean cor = false;
-                            while(!op.contentEquals("sim") && !op.contentEquals("nao")){
-                                System.out.println("O VHS é em cores? digite 'sim' ou 'nao' e pressione <ENTER>");
-                                op = sc.nextLine();
-                                if(op.contentEquals("sim"))
-                                    cor = true;                             
-                            }
-                            sis.addVHS(cod, tit, gen, ano, dur, cor);
-                        } else if (op.contentEquals("04")){
-                            System.out.println("#Cadastrar CD");
-                            System.out.println("Digite o código e pressione <ENTER>");
-                            String cod = sc.nextLine();
-                            System.out.println("Digite o título e pressione <ENTER>");
-                            String tit = sc.nextLine();
-                            System.out.println("Digite o gênero e pressione <ENTER>");
-                            String gen = sc.nextLine();
-                            System.out.println("Digite o autor(es) e pressione <ENTER>");
-                            String aut = sc.nextLine();
-                            System.out.println("Digite o número de faixas e pressione <ENTER>");
-                            Integer numF = Integer.parseInt(sc.nextLine());
-                            Boolean dup = false;
-                            while(!op.contentEquals("sim") && !op.contentEquals("nao")){
-                                System.out.println("O CD é duplo? digite 'sim' ou 'nao' e pressione <ENTER>");
-                                op = sc.nextLine();
-                                if(op.contentEquals("sim"))
-                                    dup = true;                             
-                            }
-                            Boolean arr = false;
-                            op = "";
-                            while(!op.contentEquals("sim") && !op.contentEquals("nao")){
-                                System.out.println("O CD está arranhado? digite 'sim' ou 'nao' e pressione <ENTER>");
-                                op = sc.nextLine();
-                                if(op.contentEquals("sim"))
-                                    arr = true;                             
-                            }
-                            sis.addCD(cod, tit, gen, aut, numF, dup, arr);
+                        } else if (op.contentEquals("10")){
+                            sis.getgLogin().logout();
                         }
                     }
                 } else if (op.contentEquals("02")){ //Login Operador do Sistema

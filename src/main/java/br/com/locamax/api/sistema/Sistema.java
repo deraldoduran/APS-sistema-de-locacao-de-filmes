@@ -65,5 +65,8 @@ public class Sistema {
         this.rProduct.addCD(c);
     }
 
-
+    public void addLP(String cod, String tit, String gen, String aut, int numF, Boolean rar){
+        LP l = new LP(cod, tit, gen, aut, numF, rar);
+        this.rProduct.addLP(l);
+    }
 }
