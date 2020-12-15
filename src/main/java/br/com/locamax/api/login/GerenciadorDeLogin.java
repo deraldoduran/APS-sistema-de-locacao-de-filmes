@@ -16,15 +16,15 @@ public class GerenciadorDeLogin {
         this.f_logged = f;
     }
 
-    public void login(String login, String senha, RepoEmployee rEmployee){
+    public void login(String tipo, String login, String senha, RepoEmployee rEmployee){
         try {
             Funcionario f = rEmployee.getFuncionario(login);
-            if(login.contentEquals(f.getLogin())){
-                if(senha.contentEquals(f.getSenha())){
-                    this.f_logged = f;
-                }
-            }
-            throw new Exception("Senha inválida");
+            if(!tipo.contentEquals(f.getClass().getSimpleName()))
+                throw new Exception("Este login não tem permissões de " + tipo);
+            if(senha.contentEquals(f.getSenha()))
+                this.f_logged = f;
+            else
+                throw new Exception("Senha inválida");
         } catch (Exception e) {
             System.out.println(e);
         }
