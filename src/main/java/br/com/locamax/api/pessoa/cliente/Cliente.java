@@ -2,22 +2,27 @@ package main.java.br.com.locamax.api.pessoa.cliente;
 import main.java.br.com.locamax.api.pessoa.Pessoa;
 
 public class Cliente extends Pessoa{
- public String endereco;
- public int idade;
- public char sexo;
+    public String endereco;
+    public int idade;
+    public char sexo;
 
-    public Cliente(String n, int m, String en, int id, char se){
-        super(n, m);
-        this.endereco = en;
-        this.idade = id;
-        this.sexo = se;
+    public Cliente(String nome, int mat, String e, int i, char s){
+        super(nome, mat);
+        this.endereco = e;
+        this.idade = i;
+        this.sexo = s;
     }
 
-    public Cliente(int m){
-        super(m);
+    public Cliente(int mat){
+        super(mat);
     }
 
     public String toString(){
-        return this.nome + ":" + this.matricula + ":" + this.endereco + ":" + this.idade + ":" +this.sexo;
+        return
+            "nome: " + this.nome + "\n" +
+            "nome: " + this.matricula + "\n" +
+            "nome: " + this.endereco + "\n" +
+            "nome: " + this.idade + "\n" +
+            "nome: " + this.sexo + "\n";
     }
 }

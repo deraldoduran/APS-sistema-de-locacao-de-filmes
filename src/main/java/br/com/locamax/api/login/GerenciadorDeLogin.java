@@ -6,9 +6,7 @@ import main.java.br.com.locamax.api.pessoa.funcionario.*;
 public class GerenciadorDeLogin {
     private Funcionario f_logged = null;
 
-    public GerenciadorDeLogin(){
-        // this.repoEmployee = new RepoEmployee();
-    }
+    public GerenciadorDeLogin(){}
 
     public Funcionario getFLogged(){
         return this.f_logged;
@@ -18,31 +16,28 @@ public class GerenciadorDeLogin {
         this.f_logged = f;
     }
 
-    public Funcionario login(String login, String senha, RepoEmployee rEmployee){
+    public void login(String tipo, String login, String senha, RepoEmployee rEmployee){
         try {
             Funcionario f = rEmployee.getFuncionario(login);
-            System.out.println("achei o funcionario: " + f.toString());
-            if(login.contentEquals(f.getLogin())){
-                if(senha.contentEquals(f.getSenha())){
-                    this.f_logged = f;
-                    return f;
-                }
-            }
-            throw new Exception("Senha inválida");
+            if(!tipo.contentEquals(f.getClass().getSimpleName()))
+                throw new Exception("Este login não tem permissões de " + tipo);
+            if(senha.contentEquals(f.getSenha()))
+                this.f_logged = f;
+            else
+                throw new Exception("Senha inválida");
         } catch (Exception e) {
             System.out.println(e);
-            return null;
         }
     }
 
     public boolean testLogged(){
-        return (f_logged != null) ? true : false;
+        return (this.f_logged != null) ? true : false;
     }
 
     public boolean logout(){
         try {
-            if(testLogged()){
-                f_logged = null;
+            if(this.f_logged != null){
+                this.setFLogged(null);
                 return true;
             }
             throw new Exception("Você não está logado");

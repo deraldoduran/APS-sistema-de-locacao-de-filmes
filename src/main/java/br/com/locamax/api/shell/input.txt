@@ -4,7 +4,6 @@ login
 senha
 //Cadastrar Bluray
 01
-01
 00
 (BluRay) A volta dos que nao foram
 Acao
@@ -13,7 +12,6 @@ Acao
 portugues, espanhol
 nao
 //Cadastrar DVD
-01
 01
 02
 02
@@ -24,7 +22,6 @@ Drama
 sim
 //Cadastrar VHS
 01
-01
 03
 03
 (VHS) Vento que sopra no mar
@@ -33,3 +30,21 @@ Romance
 100
 nao
 //Cadastrar CD
+01
+04
+04
+(CD) Lana Del Rei
+Gospel
+Del Rei, Lana
+12
+sim
+nao
+//Cadastrar LP
+01
+05
+05
+(LP) Xitaozinho e Chororó
+Sertanejo
+Xitaozinho, Chororó
+12
+sim

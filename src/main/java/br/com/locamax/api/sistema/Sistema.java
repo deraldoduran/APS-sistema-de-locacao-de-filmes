@@ -11,6 +11,7 @@ public class Sistema {
     RepoClient rClient;
     RepoEmployee rEmployee;
     RepoProduct rProduct;
+    RepoProduct rLocacoes;
 
     public Sistema(){
         this.gLogin = new GerenciadorDeLogin();
@@ -33,11 +34,6 @@ public class Sistema {
 
     public RepoProduct getrProduct() {
         return rProduct;
-    }
-
-    public void addEmployee(String nom, int mat, String log, String sen){
-        Funcionario f = new Funcionario(nom, mat, log, sen);
-        this.rEmployee.addFuncionario(f);
     }
 
     public void addGerente(String nom, int mat, String log, String sen){
@@ -65,5 +61,8 @@ public class Sistema {
         this.rProduct.addCD(c);
     }
 
-
+    public void addLP(String cod, String tit, String gen, String aut, int numF, Boolean rar){
+        LP l = new LP(cod, tit, gen, aut, numF, rar);
+        this.rProduct.addLP(l);
+    }
 }
