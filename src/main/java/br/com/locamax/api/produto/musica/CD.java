@@ -10,14 +10,15 @@ public class CD extends Musica{
     }
 
     public String toString(){
-        return "código: " + this.codigo + "\n" +
+        return
+            "código: " + this.codigo + "\n" +
             "título: " + this.titulo + "\n" +
             "genero: " + this.genero + "\n" +
             "autor: " + this.autor + "\n" +
-            "numero de faixas: " + this.numFaixas + "\n" +
+            "número de faixas: " + this.numFaixas + "\n" +
             "duplo: " + this.duplo + "\n" +
             "arranhado: " + this.arranhado + "\n" + 
-            "locado: " + this.locado;
+            "locado: " + this.locado + "\n";
     }
 
     @Override

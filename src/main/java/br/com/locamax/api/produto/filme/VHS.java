@@ -9,7 +9,8 @@ public class VHS extends Filmes{
     }
 
     public String toString(){
-        return "código: " + this.codigo + "\n" +
+        return
+            "código: " + this.codigo + "\n" +
             "título: " + this.titulo + "\n" +
             "genero: " + this.genero + "\n" +
             "ano lancamento: " + this.anoLancamento + "\n" +
