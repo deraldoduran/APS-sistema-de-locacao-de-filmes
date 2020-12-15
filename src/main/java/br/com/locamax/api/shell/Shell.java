@@ -9,12 +9,16 @@ public class Shell {
     BufferedReader buff;
     Scanner sc;
     String op;
-    boolean auto = false; //mude para true caso queira automatizar o shell
+    boolean auto = false;
 
     public Shell() throws IOException {
        this.buff = new BufferedReader(new FileReader("src/main/java/br/com/locamax/api/shell/input.txt"));
        this.sc = new Scanner(System.in);
        this.op = "";
+    }
+
+    public void setAuto(boolean auto) {
+        this.auto = auto;
     }
 
     public String nextLine() throws IOException {

@@ -1,6 +1,7 @@
 package main.java.br.com.locamax.api.pessoa.funcionario;
 
 import main.java.br.com.locamax.api.pessoa.cliente.Cliente;
+// import main.java.br.com.locamax.api.produto.Produto;
 import main.java.br.com.locamax.api.locacao.Locacao;
 
 import java.util.ArrayList;
@@ -16,38 +17,28 @@ public class Gerente extends Funcionario{
         this.produtoQualquer = new ArrayList<>();
         this.operador = new ArrayList<>();
     }
-
-    public void addCliente(String n, int m, String en, int id, char se ){
-        //this.cliente = new ArrayList<>();
-        this.cliente.add(new Cliente(n, m, en, id, se));
-    }
-
-    public void addProdutoQualquer(String c, String t, String g, boolean l){
-/*         Produto p = new Produto(c, t, g, l);
-        this.produtoQualquer.add(p); */
-    }
-
+    
     public void addOperador(String n, int m, String l, String s){
-        //this.operador = new ArrayList<>();
         this.operador.add(new Operador(n,m,l,s));
     }
 
+    public void addCliente(String n, int m, String en, int id, char se ){
+        this.cliente.add(new Cliente(n, m, en, id, se));
+    }
+
     public void listClientes(){
-        for(int i=0; i<cliente.size(); i++){
+        for(int i=0; i<cliente.size(); i++)
             System.out.println(cliente.toString());
-        }
     }
 
     public void listProdutos(){
-        for(int i=0; i<produtoQualquer.size(); i++){
+        for(int i=0; i<produtoQualquer.size(); i++)
             System.out.println(produtoQualquer.toString());
-        }
     }
 
     public void listOperador(){
-        for(int i=0; i<operador.size(); i++){
+        for(int i=0; i<operador.size(); i++)
             System.out.println(operador.toString());
-        }
     }
 
     public void listClientePorMatricula (int m){
