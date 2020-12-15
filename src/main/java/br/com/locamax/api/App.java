@@ -1,14 +1,15 @@
 package main.java.br.com.locamax.api;
 
-import java.util.Scanner;
-
-// import main.java.br.com.locamax.api.shell.Shell;
+import main.java.br.com.locamax.api.shell.Shell;
 import main.java.br.com.locamax.api.sistema.Sistema;
 import main.java.br.com.locamax.api.pessoa.funcionario.*;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        Scanner sc = new Scanner(System.in);
+        // substitui "Scanner sc = new Scanner(System.in)"
+        // para permitir entradas em lote
+        Shell sc =  new Shell();
+
         String op = "";
 
         Sistema sis = new Sistema();
@@ -25,11 +26,6 @@ public class App {
             );
 
             op = sc.nextLine();
-
-            //ignorando entradas que comecem com '/' para facilitar inputs em lote
-            while(op.subSequence(0, 1).equals("/")){
-                op = sc.nextLine();
-            }
 
             try{
                 if(op.contentEquals("01")){ //Login Gerente
@@ -67,11 +63,6 @@ public class App {
                     );
                     
                     op = sc.nextLine();
-
-                    //ignorando entradas que comecem com '/' para facilitar inputs em lote
-                    while(op.subSequence(0, 1).equals("/")){
-                        op = sc.nextLine();
-                    }
                     
                     if(op.contentEquals("01")){ //Cadastrar produto
                         System.out.println(
@@ -87,11 +78,6 @@ public class App {
                         );
 
                         op = sc.nextLine();
-
-                        //ignorando entradas que comecem com '/' para facilitar inputs em lote
-                        while(op.subSequence(0, 1).equals("/")){
-                            op = sc.nextLine();
-                        }
 
                         if(op.contentEquals("01")){ //Cadastrar Bluray
                             System.out.println("#Cadastrar Bluray");
