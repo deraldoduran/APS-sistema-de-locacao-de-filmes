@@ -6,9 +6,11 @@ import main.java.br.com.locamax.api.sistema.Sistema;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        // substitui "Scanner sc = new Scanner(System.in)"
-        // para permitir entradas em lote, mude para "Shell(true)".
+        // Shell substitui "new Scanner(System.in)"
         Shell sc =  new Shell();
+
+        // ative a linha abaixo para deixar o shell automático com o arquivo input.txt
+        // sc.setAuto(true);
 
         String op = "";
 
@@ -32,15 +34,15 @@ public class App {
                     while(!sis.getgLogin().testLogged()){
                         System.out.println(
                             "----------------------------LOCAMAX------------------------\n" + 
-                            "#Login\n" + 
-                            "Digite seu login:_ <ENTER>\n" +
-                            "Digite sua senha:_ <ENTER>"
+                            "#Login (Gerente)\n" + 
+                            "Digite seu login e pressione <ENTER>"
                         );
-
                         String login = sc.nextLine();
+
+                        System.out.println("Digite sua senha e pressione <ENTER>");
                         String senha = sc.nextLine();
     
-                        sis.getgLogin().login(login, senha, sis.getrEmployee());
+                        sis.getgLogin().login("Gerente", login, senha, sis.getrEmployee());
                     }
 
                     while(sis.getgLogin().testLogged()){
@@ -187,12 +189,54 @@ public class App {
                                 }
                                 sis.addLP(cod, tit, gen, aut, numF, rar);
                             }
+                        } else if(op.contentEquals("02")){ //Cadastrar Cliente
+
+                        } else if(op.contentEquals("03")){ //Cadastrar Operador
+                        } else if(op.contentEquals("04")){ //Listar produtos
+                        } else if(op.contentEquals("05")){ //Listar clientes
+                        } else if(op.contentEquals("06")){ //Lsitar operadores
+                        } else if(op.contentEquals("07")){ //Procurar produto
+                        } else if(op.contentEquals("08")){ //Procurar cliente
+                        } else if(op.contentEquals("09")){ //Procurar operador
                         } else if (op.contentEquals("10")){
                             sis.getgLogin().logout();
                         }
                     }
                 } else if (op.contentEquals("02")){ //Login Operador do Sistema
-                    System.out.println("await");
+                    while(!sis.getgLogin().testLogged()){
+                        System.out.println(
+                            "----------------------------LOCAMAX------------------------\n" + 
+                            "#Login (Operador)\n" + 
+                            "Digite seu login e pressione <ENTER>"
+                        );
+                        String login = sc.nextLine();
+
+                        System.out.println("Digite sua senha e pressione <ENTER>");
+                        String senha = sc.nextLine();
+    
+                        sis.getgLogin().login("Operador", login, senha, sis.getrEmployee());
+                    }
+
+                    while(sis.getgLogin().testLogged()){
+                        System.out.println(
+                            "#Olá Operador " + sis.getgLogin().getFLogged().getNome() + "\n" + 
+                            "01 – Fazer locação\n" +
+                            "02 – Dar baixa em locação\n" +
+                            "03 – Excluir locação\n" +
+                            "04 – Procurar Produto\n" +
+                            "05 – Procurar Cliente\n" +
+                            "06 – Logout\n" +
+                            "Digite o numero correspondente e tecle <ENTER>"
+                        );
+                        if(op.contentEquals("01")){ //Fazer locação
+                        } else if(op.contentEquals("02")){ //Dar baixa em locação
+                        } else if(op.contentEquals("03")){ //Excluir locação
+                        } else if(op.contentEquals("04")){ //Procurar Produto
+                        } else if(op.contentEquals("05")){ //Procurar Cliente
+                        } else if (op.contentEquals("06")){ //Logout
+                            sis.getgLogin().logout();
+                        }
+                    }
                 } else if (op.contentEquals("03")){ //Sair
                     System.out.println("Good Bye!!!");
                     return;
@@ -207,4 +251,4 @@ public class App {
     }
 }
 
-// #sugestoes:
+// #melhorias: validar se aquele login é do tipo que pede acesso. pe. no menu gerente se é gerente;
