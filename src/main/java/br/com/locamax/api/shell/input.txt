@@ -11,6 +11,7 @@ Acao
 300
 portugues, espanhol
 nao
+9.99
 //Cadastrar DVD
 01
 02
@@ -20,6 +21,7 @@ Drama
 1985
 230
 sim
+6.99
 //Cadastrar VHS
 01
 03
@@ -29,6 +31,7 @@ Romance
 1995
 100
 nao
+2.99
 //Cadastrar CD
 01
 04
@@ -39,6 +42,7 @@ Del Rei, Lana
 12
 sim
 nao
+0.99
 //Cadastrar LP
 01
 05
@@ -48,3 +52,4 @@ Sertanejo
 Xitaozinho, Chororó
 12
 sim
+39.99

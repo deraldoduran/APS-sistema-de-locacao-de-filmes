@@ -11,16 +11,19 @@ public class Funcionario extends Pessoa {
         this.login = l;
         this.senha = s;
     }
-
-    public String getLogin() {
+    
+    public String toString(){
+        return
+            "login: " + this.login + "\n" +
+            "senha: " + this.senha + "\n";
+    }
+    
+    public String getLogin(){
         return login;
     }
 
-    public String getSenha() {
+    public String getSenha(){
         return senha;
     }
 
-    public String toString() {
-        return this.login + " - " + this.senha;
-    }
 }
