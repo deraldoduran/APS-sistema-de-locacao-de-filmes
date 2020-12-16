@@ -10,7 +10,7 @@ public class RepoClient {
         this.mapClient = new HashMap<Integer, Cliente>();
     }
 
-    public HashMap<Integer, Cliente> getMapClient() {
+    public HashMap<Integer, Cliente> getMapClient(){
         return mapClient;
     }
 }

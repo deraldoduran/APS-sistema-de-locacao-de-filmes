@@ -1,29 +1,48 @@
 package main.java.br.com.locamax.api.pessoa.funcionario;
 
-import main.java.br.com.locamax.api.pessoa.cliente.Cliente;
-// import main.java.br.com.locamax.api.produto.Produto;
-import main.java.br.com.locamax.api.locacao.Locacao;
+import main.java.br.com.locamax.api.produto.filme.*;
+import main.java.br.com.locamax.api.produto.musica.*;
+import main.java.br.com.locamax.api.repositorio.RepoProduct;
 
-import java.util.ArrayList;
+public class Gerente extends Funcionario {
+    RepoProduct rProduct;
 
-public class Gerente extends Funcionario{
-        private ArrayList <Cliente> cliente;
-        private ArrayList <Locacao> produtoQualquer;
-        private ArrayList <Operador> operador;
-
-    public Gerente(String n, int m, String l, String s){
+    public Gerente(String n, int m, String l, String s, RepoProduct rPro){
         super(n , m, l, s);
-        this.cliente = new ArrayList<>();
-        this.produtoQualquer = new ArrayList<>();
-        this.operador = new ArrayList<>();
+        this.rProduct = rPro;
+    }
+
+    public void addBluRay(String cod, String tit, String gen, int ano, int dur, String idi, Boolean arr, float valD){
+        BluRay b = new BluRay(cod, tit, gen, ano, dur, idi, arr, valD);
+        rProduct.addProduct(b);
+    }
+
+    public void addDVD(String cod, String tit, String gen, int ano, int dur, boolean arr, float valD){
+        DVD d = new DVD(cod, tit, gen, ano, dur, arr, valD);
+        rProduct.addProduct(d);
+    }
+
+    public void addVHS(String cod, String tit, String gen, int ano, int dur, boolean cor , float valD){
+        VHS v = new VHS(cod, tit, gen, ano, dur, cor, valD);
+        rProduct.addProduct(v);
+    }
+
+    public void addCD(String cod, String tit, String gen, String aut, int numF, Boolean dup, Boolean arr, float valD){
+        CD c = new CD(cod, tit, gen, aut, numF, dup, arr, valD);
+        rProduct.addProduct(c);
+    }
+
+    public void addLP(String cod, String tit, String gen, String aut, int numF, Boolean rar, float valD){
+        LP l = new LP(cod, tit, gen, aut, numF, rar, valD);
+        rProduct.addProduct(l);
     }
     
-    public void addOperador(String n, int m, String l, String s){
-        this.operador.add(new Operador(n,m,l,s));
+    /* public void addOperador(String n, int m, String l, String s){
+        this.sis.operador.add(new Operador(n,m,l,s));
     }
 
     public void addCliente(String n, int m, String en, int id, char se ){
-        this.cliente.add(new Cliente(n, m, en, id, se));
+        this.sis.cliente.add(new Cliente(n, m, en, id, se));
     }
 
     public void listClientes(){
@@ -64,5 +83,5 @@ public class Gerente extends Funcionario{
                 System.out.println(operador.get(i).nome);
             }
         }
-    }
+    } */
 }

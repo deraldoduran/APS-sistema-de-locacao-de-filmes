@@ -4,9 +4,12 @@ import main.java.br.com.locamax.api.repositorio.RepoEmployee;
 import main.java.br.com.locamax.api.pessoa.funcionario.*;
 
 public class GerenciadorDeLogin {
-    private Funcionario f_logged = null;
+    public RepoEmployee rEmployee;
+    public Funcionario f_logged = null;
 
-    public GerenciadorDeLogin(){}
+    public GerenciadorDeLogin(RepoEmployee rEmp){
+        this.rEmployee = rEmp;
+    }
 
     public Funcionario getFLogged(){
         return this.f_logged;

@@ -5,7 +5,6 @@ import main.java.br.com.locamax.api.locacao.Locacao;
 import main.java.br.com.locamax.api.produto.Produto;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 public class Operador extends Funcionario {
     private ArrayList <Cliente> cliente;
@@ -39,7 +38,7 @@ public class Operador extends Funcionario {
             // "senha: " + this.senha + "\n";
     }
 
-    public void Locar(String c, String t, String g, boolean l, Date ds, Date ep, Date dd){
+    /* public void Locar(String c, String t, String g, boolean l, Date ds, Date ep, Date dd){
         locacao.add(new Locacao(c, t, g, ds, ep, dd));
-    }
+    } */
 }

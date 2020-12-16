@@ -1,21 +1,24 @@
 package main.java.br.com.locamax.api;
 
+import main.java.br.com.locamax.api.login.GerenciadorDeLogin;
+import main.java.br.com.locamax.api.pessoa.funcionario.*;
 import main.java.br.com.locamax.api.shell.Shell;
 import main.java.br.com.locamax.api.sistema.Sistema;
-// import main.java.br.com.locamax.api.pessoa.funcionario.*;
 
 public class App {
     public static void main(String[] args) throws Exception {
         // Shell substitui "new Scanner(System.in)"
         Shell sc =  new Shell();
 
-        // ative a linha abaixo para deixar o shell automático com o arquivo input.txt
-        // sc.setAuto(true);
+        // O valor true torna o shell automático com o arquivo input.txt
+        sc.setAuto(true);
 
         String op = "";
 
         Sistema sis = new Sistema();
-        sis.addGerente("gerente", 0, "login", "senha");
+        GerenciadorDeLogin gLogin = new GerenciadorDeLogin(sis.getrEmployee());
+
+        sis.addGerente("gerente", 0, "login", "senha", sis.getrProduct());
 
         while(!op.contentEquals("03")){
             System.out.println(
@@ -31,7 +34,7 @@ public class App {
 
             try{
                 if(op.contentEquals("01")){ //Login Gerente
-                    while(!sis.getgLogin().testLogged()){
+                    while(!gLogin.testLogged()){
                         System.out.println(
                             "----------------------------LOCAMAX------------------------\n" + 
                             "#Login (Gerente)\n" + 
@@ -42,12 +45,14 @@ public class App {
                         System.out.println("Digite sua senha e pressione <ENTER>");
                         String senha = sc.nextLine();
     
-                        sis.getgLogin().login("Gerente", login, senha, sis.getrEmployee());
+                        gLogin.login("Gerente", login, senha, sis.getrEmployee());
                     }
 
-                    while(sis.getgLogin().testLogged()){
+                    Gerente g = (Gerente)gLogin.getFLogged();
+
+                    while(gLogin.testLogged()){
                         System.out.println(
-                            "#Olá Gerente " + sis.getgLogin().getFLogged().getNome() + "\n" + 
+                            "#Olá Gerente " + gLogin.getFLogged().getNome() + "\n" + 
                             "01 – Cadastrar Produto\n" + 
                             "02 – Cadastrar Cliente\n" + 
                             "03 – Cadastrar Operador\n" +
@@ -99,7 +104,9 @@ public class App {
                                     if(op.contentEquals("sim"))
                                         arr = true;                             
                                 }
-                                sis.addBluRay(cod, tit, gen, ano, dur, idi, arr);
+                                System.out.println("Digite o valor da locação por dia e pressione <ENTER>");
+                                float valD = Float.parseFloat(sc.nextLine());
+                                g.addBluRay(cod, tit, gen, ano, dur, idi, arr, valD);
                             } else if(op.contentEquals("02")){ //Cadastrar DVD
                                 System.out.println("#Cadastrar DVD");
                                 System.out.println("Digite o código e pressione <ENTER>");
@@ -119,7 +126,9 @@ public class App {
                                     if(op.contentEquals("sim"))
                                         arr = true;                             
                                 }
-                                sis.addDVD(cod, tit, gen, ano, dur, arr);
+                                System.out.println("Digite o valor da locação por dia e pressione <ENTER>");
+                                float valD = Float.parseFloat(sc.nextLine());
+                                g.addDVD(cod, tit, gen, ano, dur, arr, valD);
                             } else if(op.contentEquals("03")){ //Cadastrar VHS
                                 System.out.println("#Cadastrar VHS");
                                 System.out.println("Digite o código e pressione <ENTER>");
@@ -139,7 +148,9 @@ public class App {
                                     if(op.contentEquals("sim"))
                                         cor = true;                             
                                 }
-                                sis.addVHS(cod, tit, gen, ano, dur, cor);
+                                System.out.println("Digite o valor da locação por dia e pressione <ENTER>");
+                                float valD = Float.parseFloat(sc.nextLine());
+                                g.addVHS(cod, tit, gen, ano, dur, cor, valD);
                             } else if (op.contentEquals("04")){
                                 System.out.println("#Cadastrar CD");
                                 System.out.println("Digite o código e pressione <ENTER>");
@@ -148,7 +159,7 @@ public class App {
                                 String tit = sc.nextLine();
                                 System.out.println("Digite o gênero e pressione <ENTER>");
                                 String gen = sc.nextLine();
-                                System.out.println("Digite o autor(es) e pressione <ENTER>");
+                                System.out.println("Digite o(s) autor(es) e pressione <ENTER>");
                                 String aut = sc.nextLine();
                                 System.out.println("Digite o número de faixas e pressione <ENTER>");
                                 Integer numF = Integer.parseInt(sc.nextLine());
@@ -167,7 +178,9 @@ public class App {
                                     if(op.contentEquals("sim"))
                                         arr = true;                             
                                 }
-                                sis.addCD(cod, tit, gen, aut, numF, dup, arr);
+                                System.out.println("Digite o valor da locação por dia e pressione <ENTER>");
+                                float valD = Float.parseFloat(sc.nextLine());
+                                g.addCD(cod, tit, gen, aut, numF, dup, arr, valD);
                             } else if (op.contentEquals("05")){
                                 System.out.println("#Cadastrar LP");
                                 System.out.println("Digite o código e pressione <ENTER>");
@@ -176,7 +189,7 @@ public class App {
                                 String tit = sc.nextLine();
                                 System.out.println("Digite o gênero e pressione <ENTER>");
                                 String gen = sc.nextLine();
-                                System.out.println("Digite o autor(es) e pressione <ENTER>");
+                                System.out.println("Digite o(s) autor(es) e pressione <ENTER>");
                                 String aut = sc.nextLine();
                                 System.out.println("Digite o número de faixas e pressione <ENTER>");
                                 Integer numF = Integer.parseInt(sc.nextLine());
@@ -187,7 +200,9 @@ public class App {
                                     if(op.contentEquals("sim"))
                                         rar = true;                             
                                 }
-                                sis.addLP(cod, tit, gen, aut, numF, rar);
+                                System.out.println("Digite o valor da locação por dia e pressione <ENTER>");
+                                float valD = Float.parseFloat(sc.nextLine());
+                                g.addLP(cod, tit, gen, aut, numF, rar, valD);
                             }
                         } else if(op.contentEquals("02")){ //Cadastrar Cliente
 
@@ -199,11 +214,11 @@ public class App {
                         } else if(op.contentEquals("08")){ //Procurar cliente
                         } else if(op.contentEquals("09")){ //Procurar operador
                         } else if (op.contentEquals("10")){
-                            sis.getgLogin().logout();
+                            gLogin.logout();
                         }
                     }
                 } else if (op.contentEquals("02")){ //Login Operador do Sistema
-                    while(!sis.getgLogin().testLogged()){
+                    while(!gLogin.testLogged()){
                         System.out.println(
                             "----------------------------LOCAMAX------------------------\n" + 
                             "#Login (Operador)\n" + 
@@ -214,12 +229,14 @@ public class App {
                         System.out.println("Digite sua senha e pressione <ENTER>");
                         String senha = sc.nextLine();
     
-                        sis.getgLogin().login("Operador", login, senha, sis.getrEmployee());
+                        gLogin.login("Operador", login, senha, sis.getrEmployee());
                     }
 
-                    while(sis.getgLogin().testLogged()){
+                    // Operador o = (Operador)gLogin.getFLogged();
+
+                    while(gLogin.testLogged()){
                         System.out.println(
-                            "#Olá Operador " + sis.getgLogin().getFLogged().getNome() + "\n" + 
+                            "#Olá Operador " + gLogin.getFLogged().getNome() + "\n" + 
                             "01 – Fazer locação\n" +
                             "02 – Dar baixa em locação\n" +
                             "03 – Excluir locação\n" +
@@ -234,7 +251,7 @@ public class App {
                         } else if(op.contentEquals("04")){ //Procurar Produto
                         } else if(op.contentEquals("05")){ //Procurar Cliente
                         } else if (op.contentEquals("06")){ //Logout
-                            sis.getgLogin().logout();
+                            gLogin.logout();
                         }
                     }
                 } else if (op.contentEquals("03")){ //Sair
