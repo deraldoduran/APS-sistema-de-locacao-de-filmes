@@ -17,10 +17,6 @@ public class RepoPerson {
         return mapPerson;
     }
 
-    public void setmapPerson(HashMap<String, Pessoa> mapPerson){
-        this.mapPerson = mapPerson;
-    }
-
     public Pessoa getPerson(String login){
         Set<String> keys = mapPerson.keySet();
         try {

@@ -4,32 +4,30 @@ import main.java.br.com.locamax.api.pessoa.funcionario.*;
 import main.java.br.com.locamax.api.repositorio.*;
 
 public class Sistema {
-    private RepoClient rClient;
-    private RepoEmployee rEmployee;
+    private RepoPerson rPerson;
     private RepoProduct rProduct;
-    // private RepoProduct rLocacoes;
+    private RepoRent rRent;
 
     public Sistema() {
-        this.rClient = new RepoClient();
-        this.rEmployee = new RepoEmployee();
+        this.rPerson = new RepoPerson();
         this.rProduct = new RepoProduct();
-        // this.rLocacoes = new RepoLocacoes();
+        this.rRent = new RepoRent();
     };
     
-    public RepoClient getrClient(){
-        return rClient;
-    }
-
-    public RepoEmployee getrEmployee(){
-        return rEmployee;
+    public RepoPerson getrPerson(){
+        return rPerson;
     }
 
     public RepoProduct getrProduct(){
         return rProduct;
     }
 
+    public RepoRent getrRent() {
+        return rRent;
+    }
+
     public void addGerente(String nom, int mat, String log, String sen, RepoProduct rPro){
         Gerente g = new Gerente(nom, mat, log, sen, rPro);
-        this.rEmployee.addFuncionario(g);
+        this.rPerson.addGerente(g);
     }
 }

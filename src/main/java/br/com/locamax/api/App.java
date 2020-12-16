@@ -16,7 +16,7 @@ public class App {
         String op = "";
 
         Sistema sis = new Sistema();
-        GerenciadorDeLogin gLogin = new GerenciadorDeLogin(sis.getrEmployee());
+        GerenciadorDeLogin gLogin = new GerenciadorDeLogin(sis.getrPerson());
 
         sis.addGerente("gerente", 0, "login", "senha", sis.getrProduct());
 
@@ -40,12 +40,12 @@ public class App {
                             "#Login (Gerente)\n" + 
                             "Digite seu login e pressione <ENTER>"
                         );
-                        String login = sc.nextLine();
+                        String login = sc.nextLine(); // login
 
                         System.out.println("Digite sua senha e pressione <ENTER>");
                         String senha = sc.nextLine();
     
-                        gLogin.login("Gerente", login, senha, sis.getrEmployee());
+                        gLogin.login("Gerente", login, senha);
                     }
 
                     Gerente g = (Gerente)gLogin.getFLogged();
@@ -229,7 +229,7 @@ public class App {
                         System.out.println("Digite sua senha e pressione <ENTER>");
                         String senha = sc.nextLine();
     
-                        gLogin.login("Operador", login, senha, sis.getrEmployee());
+                        gLogin.login("Operador", login, senha);
                     }
 
                     // Operador o = (Operador)gLogin.getFLogged();
@@ -268,4 +268,6 @@ public class App {
     }
 }
 
-// #melhorias: validar se aquele login é do tipo que pede acesso. pe. no menu gerente se é gerente;
+// #melhorias: criar controladores com menus específicos e controle de acesso.
+// Assim me livro do problema de ser linear o while.
+// Após usuário tentar logar numa categoria que nao pertence, fica preso
