@@ -1,33 +1,16 @@
 package main.java.br.com.locamax.api.pessoa.funcionario;
 
-import main.java.br.com.locamax.api.pessoa.cliente.Cliente;
-import main.java.br.com.locamax.api.locacao.Locacao;
-import main.java.br.com.locamax.api.produto.Produto;
-
-import java.util.ArrayList;
+import main.java.br.com.locamax.api.repositorio.RepoPerson;
+import main.java.br.com.locamax.api.repositorio.RepoRent;
 
 public class Operador extends Funcionario {
-    private ArrayList <Cliente> cliente;
-    private ArrayList <Produto> produtoQualquer;
-    private ArrayList <Locacao> locacao;
+    RepoPerson rPerson;
+    RepoRent rRent;
 
-    public Operador (String nome, int mat, String sen){
-        super(nome, mat, sen);
-        this.cliente = new ArrayList<>();
-        this.produtoQualquer = new ArrayList<>();
-        this.locacao = new ArrayList<>();
-    }
-
-    public ArrayList<Cliente> getCliente() {
-        return cliente;
-    }
-
-    public ArrayList<Produto> getProdutoQualquer() {
-        return produtoQualquer;
-    }
-
-    public ArrayList<Locacao> getLocacao() {
-        return locacao;
+    public Operador (String nome, int mat, String senha, RepoPerson rPer, RepoRent rRent){
+        super(nome, mat, senha);
+        this.rPerson = rPer;
+        this.rRent = rRent;
     }
 
     public String toString(){
@@ -37,8 +20,4 @@ public class Operador extends Funcionario {
             "login: " + this.login + "\n";
             // "senha: " + this.senha + "\n";
     }
-
-    /* public void Locar(String c, String t, String g, boolean l, Date ds, Date ep, Date dd){
-        locacao.add(new Locacao(c, t, g, ds, ep, dd));
-    } */
 }

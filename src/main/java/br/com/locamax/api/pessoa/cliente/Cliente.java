@@ -7,11 +7,11 @@ public class Cliente extends Pessoa {
     public int idade;
     public char sexo;
 
-    public Cliente(String nome, int mat, String e, int i, char s){
+    public Cliente(String nome, int mat, String end, int ida, char sex){
         super(nome, mat);
-        this.endereco = e;
-        this.idade = i;
-        this.sexo = s;
+        this.endereco = end;
+        this.idade = ida;
+        this.sexo = sex;
     }
 
     public String toString(){

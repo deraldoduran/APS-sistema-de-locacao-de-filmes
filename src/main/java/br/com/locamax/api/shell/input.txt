@@ -49,16 +49,27 @@ Xitaozinho, Chororó
 12
 sim
 39.99
-//Procurar produto
-07
-01
 //add Cliente
 02
-Diego
+(Cli) Diego
 Rua das Capiunas, Pedreiras, São Paulo - SP
 29
 m
+//add Operador
+03
+(Ope) Dante
+Av. do Cedro, Cedro, Quixadá - CE
+35
+m
+//list Produtos
+04
+//list Cliente
+05
+//list Operador
+06
+//find Produto
+07
+0
 //find Cliente (mat)
 08
-0
-//
+1

@@ -25,9 +25,8 @@ public class Shell {
         if (auto) {
             op = buff.readLine();
             if (op != null) { // evita exceção quando arquivo chega ao fim
-                while(op.subSequence(0, 1).equals("/")){ //verifica se a linha é comentário
+                while(op.subSequence(0, 1).equals("/")) //verifica se a linha é comentário
                     op = buff.readLine();
-                }
                 System.out.println(op);
                 return op;
             } else {
