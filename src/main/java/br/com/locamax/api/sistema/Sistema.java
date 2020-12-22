@@ -26,8 +26,10 @@ public class Sistema {
         return rRent;
     }
 
-    public void addGerente(String nom, int mat, String log, String sen, RepoProduct rPro){
-        Gerente g = new Gerente(nom, mat, log, sen, rPro);
-        this.rPerson.addGerente(g);
+    public void addGerente(String nom, String sen, RepoProduct rPro, RepoPerson rPer){
+        Gerente g = new Gerente(nom, rPerson.getId(), sen, rPro, rPer);
+        this.rPerson.addPerson(g);
     }
+
+
 }

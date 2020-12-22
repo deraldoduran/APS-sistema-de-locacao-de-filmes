@@ -18,7 +18,7 @@ public class App {
         Sistema sis = new Sistema();
         GerenciadorDeLogin gLogin = new GerenciadorDeLogin(sis.getrPerson());
 
-        sis.addGerente("gerente", 0, "login", "senha", sis.getrProduct());
+        sis.addGerente("gerente", "senha", sis.getrProduct(), sis.getrPerson());
 
         while(!op.contentEquals("03")){
             System.out.println(
@@ -85,8 +85,6 @@ public class App {
 
                             if(op.contentEquals("01")){ //Cadastrar Bluray
                                 System.out.println("#Cadastrar Bluray");
-                                System.out.println("Digite o código e pressione <ENTER>");
-                                String cod = sc.nextLine();
                                 System.out.println("Digite o título e pressione <ENTER>");
                                 String tit = sc.nextLine();
                                 System.out.println("Digite o gênero e pressione <ENTER>");
@@ -106,11 +104,9 @@ public class App {
                                 }
                                 System.out.println("Digite o valor da locação por dia e pressione <ENTER>");
                                 float valD = Float.parseFloat(sc.nextLine());
-                                g.addBluRay(cod, tit, gen, ano, dur, idi, arr, valD);
+                                g.addBluRay(tit, gen, ano, dur, idi, arr, valD);
                             } else if(op.contentEquals("02")){ //Cadastrar DVD
                                 System.out.println("#Cadastrar DVD");
-                                System.out.println("Digite o código e pressione <ENTER>");
-                                String cod = sc.nextLine();
                                 System.out.println("Digite o título e pressione <ENTER>");
                                 String tit = sc.nextLine();
                                 System.out.println("Digite o gênero e pressione <ENTER>");
@@ -128,11 +124,9 @@ public class App {
                                 }
                                 System.out.println("Digite o valor da locação por dia e pressione <ENTER>");
                                 float valD = Float.parseFloat(sc.nextLine());
-                                g.addDVD(cod, tit, gen, ano, dur, arr, valD);
+                                g.addDVD(tit, gen, ano, dur, arr, valD);
                             } else if(op.contentEquals("03")){ //Cadastrar VHS
                                 System.out.println("#Cadastrar VHS");
-                                System.out.println("Digite o código e pressione <ENTER>");
-                                String cod = sc.nextLine();
                                 System.out.println("Digite o título e pressione <ENTER>");
                                 String tit = sc.nextLine();
                                 System.out.println("Digite o gênero e pressione <ENTER>");
@@ -150,11 +144,9 @@ public class App {
                                 }
                                 System.out.println("Digite o valor da locação por dia e pressione <ENTER>");
                                 float valD = Float.parseFloat(sc.nextLine());
-                                g.addVHS(cod, tit, gen, ano, dur, cor, valD);
+                                g.addVHS(tit, gen, ano, dur, cor, valD);
                             } else if (op.contentEquals("04")){
                                 System.out.println("#Cadastrar CD");
-                                System.out.println("Digite o código e pressione <ENTER>");
-                                String cod = sc.nextLine();
                                 System.out.println("Digite o título e pressione <ENTER>");
                                 String tit = sc.nextLine();
                                 System.out.println("Digite o gênero e pressione <ENTER>");
@@ -180,11 +172,9 @@ public class App {
                                 }
                                 System.out.println("Digite o valor da locação por dia e pressione <ENTER>");
                                 float valD = Float.parseFloat(sc.nextLine());
-                                g.addCD(cod, tit, gen, aut, numF, dup, arr, valD);
+                                g.addCD(tit, gen, aut, numF, dup, arr, valD);
                             } else if (op.contentEquals("05")){
                                 System.out.println("#Cadastrar LP");
-                                System.out.println("Digite o código e pressione <ENTER>");
-                                String cod = sc.nextLine();
                                 System.out.println("Digite o título e pressione <ENTER>");
                                 String tit = sc.nextLine();
                                 System.out.println("Digite o gênero e pressione <ENTER>");
@@ -202,16 +192,47 @@ public class App {
                                 }
                                 System.out.println("Digite o valor da locação por dia e pressione <ENTER>");
                                 float valD = Float.parseFloat(sc.nextLine());
-                                g.addLP(cod, tit, gen, aut, numF, rar, valD);
+                                g.addLP(tit, gen, aut, numF, rar, valD);
                             }
                         } else if(op.contentEquals("02")){ //Cadastrar Cliente
-
+                            System.out.println("#Cadastrar Cliente: ");
+                            System.out.println("Digite o nome do cliente e pressione <ENTER>");
+                            String nome = sc.nextLine();
+                            System.out.println("Digite o endereço do cliente e pressione <ENTER>");
+                            String end = sc.nextLine();
+                            System.out.println("Digite a idade do cliente e pressione <ENTER>");
+                            Integer idd = Integer.parseInt(sc.nextLine());
+                            System.out.println("Digite 'm' ou 'f' para o sexo do cliente e pressione <ENTER>");
+                            char sex = sc.nextLine().charAt(0);
+                            while(sex != 'm' && sex != 'f'){
+                                System.out.println("Digite 'm' ou 'f' para o sexo do cliente e pressione <ENTER>");
+                                sex = sc.nextLine().charAt(0);
+                            }
+                            g.addCliente(nome, end, idd, sex);
                         } else if(op.contentEquals("03")){ //Cadastrar Operador
                         } else if(op.contentEquals("04")){ //Listar produtos
+                            System.out.println("#Lista de Produtos: ");
+                            g.listProduto();
                         } else if(op.contentEquals("05")){ //Listar clientes
-                        } else if(op.contentEquals("06")){ //Lsitar operadores
+                        } else if(op.contentEquals("06")){ //Listar operadores
                         } else if(op.contentEquals("07")){ //Procurar produto
+                            System.out.println(
+                                "#Procurar Produto: " +
+                                "Digite o código do Produto e pressione <ENTER>"
+                            );
+                            String cod = sc.nextLine();
+                            g.findProduto(cod);
                         } else if(op.contentEquals("08")){ //Procurar cliente
+                            System.out.println(
+                                "#Procurar Cliente: " + "\n" +
+                                "Digite a matrícula do Cliente e pressione <ENTER>"
+                            );
+                            int mat = Integer.parseInt(sc.nextLine());
+                            try {
+                                g.findClient(mat);
+                            } catch (Exception e) {
+                                System.out.println( e + " iae?");
+                            }
                         } else if(op.contentEquals("09")){ //Procurar operador
                         } else if (op.contentEquals("10")){
                             gLogin.logout();

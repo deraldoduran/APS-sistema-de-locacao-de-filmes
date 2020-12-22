@@ -1,9 +1,8 @@
 //login Gerente
 01
-login
+0
 senha
 //Cadastrar Bluray
-01
 01
 01
 (BluRay) A volta dos que nao foram
@@ -16,7 +15,6 @@ nao
 //Cadastrar DVD
 01
 02
-02
 (DVD) A ida dos que nao partiram
 Drama
 1985
@@ -26,7 +24,6 @@ sim
 //Cadastrar VHS
 01
 03
-03
 (VHS) Vento que sopra no mar
 Romance
 1995
@@ -35,7 +32,6 @@ nao
 2.99
 //Cadastrar CD
 01
-04
 04
 (CD) Lana Del Rei
 Gospel
@@ -47,10 +43,22 @@ nao
 //Cadastrar LP
 01
 05
-05
 (LP) Xitaozinho e Chororó
 Sertanejo
 Xitaozinho, Chororó
 12
 sim
 39.99
+//Procurar produto
+07
+01
+//add Cliente
+02
+Diego
+Rua das Capiunas, Pedreiras, São Paulo - SP
+29
+m
+//find Cliente (mat)
+08
+0
+//

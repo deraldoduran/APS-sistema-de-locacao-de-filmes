@@ -11,8 +11,8 @@ public class Operador extends Funcionario {
     private ArrayList <Produto> produtoQualquer;
     private ArrayList <Locacao> locacao;
 
-    public Operador (String nome, int mat, String log, String sen){
-        super(nome, mat, log, sen);
+    public Operador (String nome, int mat, String sen){
+        super(nome, mat, sen);
         this.cliente = new ArrayList<>();
         this.produtoQualquer = new ArrayList<>();
         this.locacao = new ArrayList<>();

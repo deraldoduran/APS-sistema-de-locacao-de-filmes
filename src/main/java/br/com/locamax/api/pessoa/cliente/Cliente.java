@@ -17,9 +17,9 @@ public class Cliente extends Pessoa {
     public String toString(){
         return
             "nome: " + this.nome + "\n" +
-            "nome: " + this.matricula + "\n" +
-            "nome: " + this.endereco + "\n" +
-            "nome: " + this.idade + "\n" +
-            "nome: " + this.sexo + "\n";
+            "matrícula: " + this.matricula + "\n" +
+            "endereço: " + this.endereco + "\n" +
+            "idade: " + this.idade + "\n" +
+            "sexo: " + this.sexo + "\n";
     }
 }

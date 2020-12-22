@@ -22,7 +22,7 @@ public class GerenciadorDeLogin {
 
     public void login(String tipo, String login, String senha){
         try {
-            Funcionario f = (Funcionario)rPerson.getPerson(login);
+            Funcionario f = (Funcionario)rPerson.getPerson(Integer.parseInt(login));
             if(!tipo.contentEquals(f.getClass().getSimpleName()))
                 throw new Exception("Este login não tem permissões de " + tipo);
             if(senha.contentEquals(f.getSenha()))
