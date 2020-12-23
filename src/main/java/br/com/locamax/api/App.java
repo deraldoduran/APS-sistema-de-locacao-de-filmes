@@ -1,9 +1,9 @@
 package main.java.br.com.locamax.api;
 
-import main.java.br.com.locamax.api.login.GerenciadorDeLogin;
-import main.java.br.com.locamax.api.pessoa.funcionario.*;
 import main.java.br.com.locamax.api.shell.Shell;
 import main.java.br.com.locamax.api.sistema.Sistema;
+import main.java.br.com.locamax.api.login.GerenciadorDeLogin;
+import main.java.br.com.locamax.api.pessoa.funcionario.*;
 
 public class App {
     public static void main(String[] args) throws Exception {
@@ -18,7 +18,7 @@ public class App {
         Sistema sis = new Sistema();
         GerenciadorDeLogin gLogin = new GerenciadorDeLogin(sis.getrPerson());
 
-        sis.addGerente("gerente", "senha", sis.getrProduct(), sis.getrPerson());
+        sis.addGerente("(Ger) Vito", "senha", sis.getrProduct(), sis.getrPerson());
 
         while(!op.contentEquals("03")){
             System.out.println(
@@ -201,20 +201,30 @@ public class App {
                             System.out.println("Digite o endereço do cliente e pressione <ENTER>");
                             String end = sc.nextLine();
                             System.out.println("Digite a idade do cliente e pressione <ENTER>");
-                            Integer idd = Integer.parseInt(sc.nextLine());
+                            Integer ida = Integer.parseInt(sc.nextLine());
                             System.out.println("Digite 'm' ou 'f' para o sexo do cliente e pressione <ENTER>");
                             char sex = sc.nextLine().charAt(0);
                             while(sex != 'm' && sex != 'f'){
                                 System.out.println("Digite 'm' ou 'f' para o sexo do cliente e pressione <ENTER>");
                                 sex = sc.nextLine().charAt(0);
                             }
-                            g.addCliente(nome, end, idd, sex);
+                            g.addCliente(nome, end, ida, sex);
                         } else if(op.contentEquals("03")){ //Cadastrar Operador
+                            System.out.println("#Cadastrar Operador: ");
+                            System.out.println("Digite o nome do Operador e pressione <ENTER>");
+                            String nome = sc.nextLine();
+                            System.out.println("Digite a senha do Operador e pressione <ENTER>");
+                            String senha = sc.nextLine();
+                            g.addOperador(nome, senha, sis.getrPerson(), sis.getrProduct(), sis.getrRent());
                         } else if(op.contentEquals("04")){ //Listar produtos
                             System.out.println("#Lista de Produtos: ");
                             g.listProduto();
                         } else if(op.contentEquals("05")){ //Listar clientes
+                            System.out.println("#Lista de Clientes: ");
+                            g.listCliente();
                         } else if(op.contentEquals("06")){ //Listar operadores
+                            System.out.println("#Lista de Operadores: ");
+                            g.listOperador();
                         } else if(op.contentEquals("07")){ //Procurar produto
                             System.out.println(
                                 "#Procurar Produto: " +
@@ -228,12 +238,14 @@ public class App {
                                 "Digite a matrícula do Cliente e pressione <ENTER>"
                             );
                             int mat = Integer.parseInt(sc.nextLine());
-                            try {
-                                g.findClient(mat);
-                            } catch (Exception e) {
-                                System.out.println( e + " iae?");
-                            }
+                            g.findCliente(mat);
                         } else if(op.contentEquals("09")){ //Procurar operador
+                            System.out.println(
+                                "#Procurar Operador: " + "\n" +
+                                "Digite a matrícula do Operador e pressione <ENTER>"
+                            );
+                            int mat = Integer.parseInt(sc.nextLine());
+                            g.findOperador(mat);
                         } else if (op.contentEquals("10")){
                             gLogin.logout();
                         }
@@ -253,7 +265,7 @@ public class App {
                         gLogin.login("Operador", login, senha);
                     }
 
-                    // Operador o = (Operador)gLogin.getFLogged();
+                    Operador o = (Operador)gLogin.getFLogged();
 
                     while(gLogin.testLogged()){
                         System.out.println(
@@ -266,11 +278,59 @@ public class App {
                             "06 – Logout\n" +
                             "Digite o numero correspondente e tecle <ENTER>"
                         );
+
+                        op = sc.nextLine();
+
                         if(op.contentEquals("01")){ //Fazer locação
+                            System.out.println(
+                                "#Fazer Locação" + "\n" +
+                                "Digite a matrícula do Cliente e pressione <ENTER>"
+                            );
+                            Integer mat = Integer.parseInt(sc.nextLine());
+                            System.out.println("Digite o código do produto e pressione <ENTER>");
+                            String cod = sc.nextLine();
+                            System.out.println("Digite por quantos dias será locado e pressione <ENTER>");
+                            Integer dias = Integer.parseInt(sc.nextLine());
+                            o.fazerLocacao(mat, cod, dias);
                         } else if(op.contentEquals("02")){ //Dar baixa em locação
+                            System.out.println(
+                                "#Dar baixa em Locação" + "\n" +
+                                "Digite a matrícula do cliente e pressione <ENTER>"
+                            );
+                            int mat = Integer.parseInt(sc.nextLine());
+                            System.out.println("Digite o código do produto e pressione <ENTER>");
+                            String cod = sc.nextLine();
+                            o.fecharLocacao(mat, cod);
+                            op = "";
+                            while(!op.contentEquals("sim") && !op.contentEquals("nao")){
+                                System.out.println("Finalizar baixa? digite 'sim' ou 'não'");
+                                op = sc.nextLine();
+                                if(op.contentEquals("sim"))
+                                    o.remLocacao(mat, cod);                             
+                            }
                         } else if(op.contentEquals("03")){ //Excluir locação
+                            System.out.println(
+                                "#Excluir 'Locação" + "\n" +
+                                "Digite a matrícula do cliente e pressione <ENTER>"
+                            );
+                            int mat = Integer.parseInt(sc.nextLine());
+                            System.out.println("Digite o código do produto e pressione <ENTER>");
+                            String cod = sc.nextLine();
+                            o.remLocacao(mat, cod);
                         } else if(op.contentEquals("04")){ //Procurar Produto
+                            System.out.println(
+                                "#Procurar Produto: " + "\n" + 
+                                "Digite o código do Produto e pressione <ENTER>"
+                            );
+                            String cod = sc.nextLine();
+                            o.findProduto(cod);
                         } else if(op.contentEquals("05")){ //Procurar Cliente
+                            System.out.println(
+                                "#Procurar Cliente: " + "\n" +
+                                "Digite a matrícula do Cliente e pressione <ENTER>"
+                            );
+                            int mat = Integer.parseInt(sc.nextLine());
+                            o.findCliente(mat);
                         } else if (op.contentEquals("06")){ //Logout
                             gLogin.logout();
                         }
@@ -291,4 +351,4 @@ public class App {
 
 // #melhorias: criar controladores com menus específicos e controle de acesso.
 // Assim me livro do problema de ser linear o while.
-// Após usuário tentar logar numa categoria que nao pertence, fica preso
+// [!] Após usuário tentar logar numa categoria que nao pertence, fica preso

@@ -18,10 +18,5 @@ public class DVD extends Filmes {
             "aranhado: " + this.arranhado + "\n" +
             "locado: " + this.locado + "\n" +
             "valor ao dia: " + this.valDiaria + "\n";
-    }
-
-    @Override
-    public double calcularDiaria(){
-        return 0;
-    }
+    } 
 }

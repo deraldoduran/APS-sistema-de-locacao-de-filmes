@@ -15,7 +15,7 @@ public abstract class Produto {
         this.locado = false;
     }
 
-    public abstract double calcularDiaria(); 
+    // public abstract double calcularDiaria();
 
     public String toString(){
         return "código: " + this.codigo + "\n" +
@@ -59,6 +59,4 @@ public abstract class Produto {
     public void setLocado(boolean locado){
         this.locado = locado;
     }
-    
-    public void quaisProdutos(){};
 }
