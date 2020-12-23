@@ -19,9 +19,4 @@ public class VHS extends Filmes {
             "locado: " + this.locado + "\n" +
             "valor ao dia: " + this.valDiaria + "\n";
     }
-
-    @Override
-    public double calcularDiaria(){
-        return 0;
-    }
 }

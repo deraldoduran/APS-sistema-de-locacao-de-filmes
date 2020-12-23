@@ -1,9 +1,7 @@
 package main.java.br.com.locamax.api.locacao;
 
 import java.util.Calendar;
-import java.text.DateFormat;
 import java.util.Date;
-// import main.java.br.com.locamax.api.pessoa.cliente.Cliente;
 
 public class Locacao {
     int matricula;
@@ -12,28 +10,76 @@ public class Locacao {
     Date dataEntregaPrevista;
     Date dataDevolucao;
 
-    public Locacao (String cod, int mat, Date ds, Date dep){
+    public Locacao (int mat, String cod){
         this.matricula = mat;
         this.codigoProd = cod;
-        this.dataSaida = ds;
-        this.dataEntregaPrevista = dep;
+        this.dataSaida = Calendar.getInstance().getTime();
+        this.dataEntregaPrevista = null;
+    }
+
+    public String toString() {
+        return
+            "matrícula do cliente: " + matricula + "\n" + 
+            "código do produto: " + codigoProd + "\n" + 
+            "data de saída: " + dataSaida + "\n" + 
+            "entrega prevista: " + dataEntregaPrevista + "\n" + 
+            "data de devolução: " + dataDevolucao + "\n";
+    }
+
+    public int getMatricula() {
+        return matricula;
+    }
+
+    public String getCodigoProd() {
+        return codigoProd;
     }
     
-    public void fazerLocacao(int mat, String cod, Date ds, Date dep){
-        Calendar c = Calendar.getInstance();
-        c.set(2013, Calendar.FEBRUARY, 28);
-        Date data = c.getTime();
-        System.out.println("Data atual sem formatação: " + data);
-        //Formata a data
-        DateFormat formataData = DateFormat.getDateInstance();
-        System.out.println("Data atual com formatação: "+ formataData.format(data));
-        //Formata Hora
-        DateFormat hora = DateFormat.getTimeInstance();
-        System.out.println("Hora formatada: "+hora.format(data));
-        //Formata Data e Hora
-        DateFormat dtHora = DateFormat.getDateTimeInstance();
-        System.out.println(dtHora.format(data));
+    public Date getDataSaida() {
+        return dataSaida;
+    }
+
+    public Date getDataEntregaPrevista() {
+        return dataEntregaPrevista;
+    }
+
+    public Date getDataDevolucao() {
+        return dataDevolucao;
+    }
+
+    
+    public void setDataEntregaPrevista(int dias) {
+        Calendar newDate = Calendar.getInstance();
+        newDate.add(Calendar.DAY_OF_MONTH, 10);
+        this.dataEntregaPrevista = newDate.getTime();
+    }
+
+    public void setDataDevolucao() {
+        this.dataDevolucao = Calendar.getInstance().getTime();
     }
     
-    public double calcularDiaria(Date dd){ return 0; }
+    public double calcularMulta(double valDiaria){
+        Calendar devolucao = Calendar.getInstance();
+        devolucao.setTime(getDataDevolucao());
+        
+        Calendar dataPrevista = Calendar.getInstance();
+        dataPrevista.setTime(getDataSaida());
+
+        devolucao.add(Calendar.DATE, - dataPrevista.get(Calendar.DAY_OF_MONTH));
+        int dif = devolucao.get(Calendar.DAY_OF_MONTH);
+
+        return (dif < 0) ? valDiaria : (dif * valDiaria) * 0.1;
+    }
+
+    public double calcularDiarias(double valDiaria){
+        Calendar devolucao = Calendar.getInstance();
+        devolucao.setTime(getDataDevolucao());
+        
+        Calendar saida = Calendar.getInstance();
+        saida.setTime(getDataSaida());
+
+        devolucao.add(Calendar.DATE, - saida.get(Calendar.DAY_OF_MONTH));
+        int dif = devolucao.get(Calendar.DAY_OF_MONTH);
+
+        return valDiaria * dif;
+    }
 }

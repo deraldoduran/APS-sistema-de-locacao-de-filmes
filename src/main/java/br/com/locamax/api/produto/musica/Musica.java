@@ -21,9 +21,4 @@ public abstract class Musica extends Produto {
             "nº de faixas: " + this.numFaixas + "\n" +
             "valor ao dia: " + this.valDiaria + "\n";
     }
-
-    @Override
-    public double calcularDiaria(){
-        return 0;
-    }
 }

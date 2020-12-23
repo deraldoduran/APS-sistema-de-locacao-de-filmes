@@ -58,9 +58,7 @@ m
 //add Operador
 03
 (Ope) Dante
-Av. do Cedro, Cedro, Quixadá - CE
-35
-m
+senha
 //list Produtos
 04
 //list Cliente
@@ -73,3 +71,41 @@ m
 //find Cliente (mat)
 08
 1
+//Logout Gerente
+10
+//login Operador
+02
+2
+senha
+//fazer Locacao
+01
+1
+1
+10
+//fazer Locacao
+01
+1
+2
+10
+//fazer Locacao
+01
+1
+3
+5
+//Dar baixa na Locacao
+02
+1
+2
+sim
+//Excluir locacao
+03
+1
+1
+//procurar Produto
+04
+4
+//procurar Cliente
+05
+1
+//logout
+06

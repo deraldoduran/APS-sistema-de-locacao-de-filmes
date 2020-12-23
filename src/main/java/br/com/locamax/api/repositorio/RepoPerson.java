@@ -41,12 +41,17 @@ public class RepoPerson {
         System.out.println(p.toString());
     }
 
-    public boolean findPerson(int mat){
+    public void findPerson(int mat){
         Pessoa p = getPerson(mat);
         if(p != null){
             System.out.println(p.toString());
-            return true;
         }
-        return false;
+    }
+
+    public void listEntity(String className){
+        for(Pessoa p : mapPerson.values()){
+            if((p.getClass().getSimpleName()).contentEquals(className))
+                System.out.println(p.toString());
+        }
     }
 }

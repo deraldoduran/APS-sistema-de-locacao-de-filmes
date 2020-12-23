@@ -3,8 +3,7 @@ package main.java.br.com.locamax.api.pessoa.funcionario;
 import main.java.br.com.locamax.api.pessoa.cliente.Cliente;
 import main.java.br.com.locamax.api.produto.filme.*;
 import main.java.br.com.locamax.api.produto.musica.*;
-import main.java.br.com.locamax.api.repositorio.RepoPerson;
-import main.java.br.com.locamax.api.repositorio.RepoProduct;
+import main.java.br.com.locamax.api.repositorio.*;
 
 public class Gerente extends Funcionario {
     RepoProduct rProduct;
@@ -16,6 +15,7 @@ public class Gerente extends Funcionario {
         this.rPerson = rPer;
     }
 
+    //Produto
     public void addBluRay(String tit, String gen, int ano, int dur, String idi, Boolean arr, float valD){
         BluRay b = new BluRay(String.valueOf(rProduct.getId()), tit, gen, ano, dur, idi, arr, valD);
         rProduct.addProduct(b);
@@ -49,18 +49,24 @@ public class Gerente extends Funcionario {
         rProduct.listProduto();
     }
 
-    public boolean findPerson(int mat){
+    //Pessoa
+    public void findPerson(int mat){
         try {
-            return rPerson.findPerson(mat);
+            rPerson.findPerson(mat);
         } catch (Exception e) {
             System.out.println(e);
         }
-        return false;
     }
 
-    public boolean findClient(int mat){
+    //Cliente
+    public void addCliente(String nome, String end, int idd, char sex){
+        Cliente c = new Cliente(nome, rPerson.getId(), end, idd, sex);
+        rPerson.addPerson(c);
+    }
+
+    public boolean findCliente(int mat){
         try {
-            if("Cliente".contentEquals(rPerson.getPerson(mat).getNome())){
+            if("Cliente".contentEquals(rPerson.getPerson(mat).getClass().getSimpleName())){
                 return true;
             }
             throw new Exception("A matrícula \"" + mat + "\" não pertence a um cliente");
@@ -70,61 +76,29 @@ public class Gerente extends Funcionario {
         return false;
     }
 
-    public void addCliente(String nome, String end, int idd, char sex){
-        Cliente c = new Cliente(nome, rPerson.getId(), end, idd, sex);
-        rPerson.addPerson(c);
+    public void listCliente(){
+        rPerson.listEntity("Cliente");
     }
 
-    public void addOperador(String nome, String sen){
-        Operador op = new Operador(nome, rPerson.getId(), sen);
-        rPerson.addPerson(op);
-    }
-    
-    /* public void addOperador(String n, int m, String l, String s){
-        this.sis.operador.add(new Operador(n,m,l,s));
+    //Operador
+    public void addOperador(String nome, String senha, RepoPerson rPer, RepoProduct rProd, RepoRent rRent){
+        Operador o = new Operador(nome, rPerson.getId(), senha, rPer, rProd, rRent);
+        rPerson.addPerson(o);
     }
 
-    public void addCliente(String n, int m, String en, int id, char se ){
-        this.sis.cliente.add(new Cliente(n, m, en, id, se));
-    }
-
-    public void listClientes(){
-        for(int i=0; i<cliente.size(); i++)
-            System.out.println(cliente.toString());
-    }
-
-    public void listProdutos(){
-        for(int i=0; i<produtoQualquer.size(); i++)
-            System.out.println(produtoQualquer.toString());
+    public boolean findOperador(int mat){
+        try {
+            if("Operador".contentEquals(rPerson.getPerson(mat).getClass().getSimpleName())){
+                return true;
+            }
+            throw new Exception("A matrícula \"" + mat + "\" não pertence a um operador");
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return false;
     }
 
     public void listOperador(){
-        for(int i=0; i<operador.size(); i++)
-            System.out.println(operador.toString());
+        rPerson.listEntity("Operador");
     }
-
-    public void listClientePorMatricula (int m){
-        for(int i = 0; i< cliente.size(); i++){
-            if(cliente.get(i).matricula == m){
-                //cliente.get(i).
-                System.out.println(cliente.get(i).nome);
-            }
-        }
-    }
-
-    public void procurarProdutoPorString.valueOf(rProduct.getId())igo( String c){
-        for(int i = 0; i< produtoQualquer.size(); i++){
-            if(produtoQualquer.get(i).String.valueOf(rProduct.getId())igo.equals(c) ){
-                System.out.println(produtoQualquer.get(i).titulo);
-            }
-        }
-    }
-
-    public void procurarOperadoresPorMatricula(int m){
-        for(int i = 0; i< operador.size(); i++){
-            if(operador.get(i).matricula == m){
-                System.out.println(operador.get(i).nome);
-            }
-        }
-    } */
 }
