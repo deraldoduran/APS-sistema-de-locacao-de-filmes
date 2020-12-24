@@ -1,7 +1,7 @@
 # Trabalho da disciplina de Análise e Projeto de Sistemas
 ## Sistema de Locação de filmes 
 contact me:
-[linkedin](linkedin.com/in/deraldo-duran)
+[linkedin](https://www.linkedin.com/in/deraldo-duran)
 ```
 Alunos: Deraldo Duran, Diego, Evynne, Francisco Vito;
 
