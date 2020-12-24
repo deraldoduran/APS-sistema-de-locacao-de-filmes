@@ -7,10 +7,20 @@ Deraldo Duran->
 [facebook](https://www.facebook.com/deraldoduran)
 [twitter](https://twitter.com/deraldoduran)
 [instagram](https://www.instagram.com/duran.deraldo)
+[github](https://github.com/deraldoduran)
 
 <br>
     
-Diego ->
+Diego Oliveira ->
+[linkedin]( )
+[facebook]( )
+[twitter]( )
+[instagram]( )
+[github](https://github.com/DiFeitoza)
+
+<br>
+
+Evynne Avelino->
 [linkedin]( )
 [facebook]( )
 [twitter]( )
@@ -18,19 +28,12 @@ Diego ->
 
 <br>
 
-Evynne ->
-[linkedin]( )
-[facebook]( )
-[twitter]( )
-[instagram]( )
-
-<br>
-
-Francisco Vito ->
+Francisco Vito Neto ->
 [linkedin]( )
 [facebook](https://www.facebook.com/vito.neto.3720/)
 [twitter]( )
 [instagram]( )
+[github](https://github.com/franvito)
 
 
 
