@@ -6,7 +6,32 @@ Deraldo Duran->
 [linkedin](https://www.linkedin.com/in/deraldo-duran)
 [facebook](https://www.facebook.com/deraldoduran)
 [twitter](https://twitter.com/deraldoduran)
+
+<br>
     
+Diego ->
+[linkedin]( )
+[facebook]( )
+[twitter]( )
+[instagram]( )
+
+<br>
+Evynne ->
+[linkedin]( )
+[facebook]( )
+[twitter]( )
+[instagram]( )
+
+<br>
+
+Francisco Vito ->
+[linkedin]( )
+[facebook]( )
+[twitter]( )
+[instagram]( )
+
+
+
 
   
 ```
