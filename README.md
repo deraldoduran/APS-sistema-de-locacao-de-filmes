@@ -1,7 +1,7 @@
 # Trabalho da disciplina de Análise e Projeto de Sistemas
 ## Sistema de Locação de filmes 
 contact me:
-
+```
 <details>
   <summary> <b> Deraldo Duran: <\b> <i> (click to expand!) <\i> <\summary>
     <br>
@@ -10,6 +10,7 @@ contact me:
 [twitter](https://twitter.com/deraldoduran)
     
   <\details>
+  ```
 ```
 Alunos: Deraldo Duran, Diego, Evynne, Francisco Vito;
 
