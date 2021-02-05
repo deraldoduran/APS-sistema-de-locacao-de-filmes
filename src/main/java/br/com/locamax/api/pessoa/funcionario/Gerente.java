@@ -31,12 +31,12 @@ public class Gerente extends Funcionario {
         rProduct.addProduct(v);
     }
 
-    public void addCD(String tit, String gen, String aut, int numF, Boolean dup, Boolean arr, float valD){
+    public void addCD(String tit, String gen, String aut, int numF, boolean dup, boolean arr, float valD){
         CD c = new CD(String.valueOf(rProduct.getId()), tit, gen, aut, numF, dup, arr, valD);
         rProduct.addProduct(c);
     }
 
-    public void addLP(String tit, String gen, String aut, int numF, Boolean rar, float valD){
+    public void addLP(String tit, String gen, String aut, int numF, boolean rar, float valD){
         LP l = new LP(String.valueOf(rProduct.getId()), tit, gen, aut, numF, rar, valD);
         rProduct.addProduct(l);
     }
