@@ -8,6 +8,7 @@ Deraldo Duran->
 [twitter](https://twitter.com/deraldoduran)
 [instagram](https://www.instagram.com/duran.deraldo)
 [github](https://github.com/deraldoduran)
+[EURES](https://europa.eu/!XT48Qn)
 
 <br>
     
